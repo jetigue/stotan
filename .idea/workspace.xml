@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b7d8282-56c6-4d4e-a622-0e3ea1196e11" name="Default Changelist" comment="" />
+    <list default="true" id="3b7d8282-56c6-4d4e-a622-0e3ea1196e11" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/stotan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stotan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/Show.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/app-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/app-dark.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/group.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/group.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/lists/two-column.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,12 +42,15 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
     <bower-package value="" />
     <bower.json value="" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+  <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
@@ -141,14 +175,20 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1kIsU9PbLlnjH19tg0ZcHwgNNkb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -157,6 +197,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -196,7 +238,37 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b7d8282-56c6-4d4e-a622-0e3ea1196e11" name="Default Changelist" comment="" />
+      <created>1605547397203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605547397203</updated>
+      <workItem from="1605547398338" duration="7959000" />
+      <workItem from="1605570275379" duration="196000" />
+      <workItem from="1605570481034" duration="72000" />
+      <workItem from="1605570561803" duration="7572000" />
+      <workItem from="1605617924753" duration="21307000" />
+      <workItem from="1605656657805" duration="83000" />
+      <workItem from="1605656766747" duration="244000" />
+      <workItem from="1605657022815" duration="5240000" />
+      <workItem from="1605710840917" duration="18695000" />
+      <workItem from="1605740995504" duration="2449000" />
+      <workItem from="1605743456880" duration="6981000" />
+      <workItem from="1605793056399" duration="8446000" />
+      <workItem from="1605804232405" duration="2333000" />
+      <workItem from="1605807235774" duration="1406000" />
+      <workItem from="1605808654476" duration="223000" />
+      <workItem from="1605808887258" duration="6750000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
