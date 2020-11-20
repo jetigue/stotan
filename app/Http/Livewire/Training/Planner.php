@@ -7,9 +7,11 @@ use Livewire\Component;
 
 class Planner extends Component
 {
+    public $expandRecord = false;
     public $showCreateModal = false;
     public $showConfirmModal = false;
     public $macrocycle;
+    public $editing = false;
 
     protected $listeners = [
         'hideModal' => 'hideCreateModal'
@@ -21,6 +23,7 @@ class Planner extends Component
     public function edit(Macrocycle $macrocycle)
     {
         $this->showCreateModal = true;
+        $this->editing = true;
         $this->emit('editMacrocycle', $macrocycle->id);
     }
 
@@ -34,11 +37,13 @@ class Planner extends Component
     {
         $this->macrocycle->delete();
         $this->showConfirmModal = false;
+        $this->expandRecord = false;
     }
 
     public function cancel()
     {
         $this->showCreateModal = false;
+        $this->editing = false;
 
         $this->emit('cancelCreate');
     }

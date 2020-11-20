@@ -24,8 +24,8 @@
                 </x-slot>
                 <div class="space-y-2">
                     @foreach($macrocycles as $macrocycle)
-                        <div class="w-full bg-white hover:bg-cool-gray-50 rounded-sm">
-                            <div x-data="{show:false}" class="w-full flex-col">
+                        <div x-data="{show: @entangle('expandRecord')}" class="w-full bg-white hover:bg-cool-gray-50 rounded-sm">
+                            <div  class="w-full flex-col">
                                 <div  class="w-full flex items-center py-4">
                                     <div class="w-11/12 flex items-baseline">
                                         <div class="flex-col w-1/3 ml-6">

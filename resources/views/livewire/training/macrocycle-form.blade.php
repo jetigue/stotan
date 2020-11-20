@@ -6,7 +6,7 @@
 
             <x-input.group for="begin_date" label="Begins" :error="$errors->first('begin_date')">
                 <x-input.date
-                    wire:model.defer="begin_date"
+                    wire:model="begin_date"
                     id="begin_date"
                     placeholder="MM/DD/YYYY"
                 ></x-input.date>
@@ -14,7 +14,7 @@
 
             <x-input.group for="end_date" label="Ends" :error="$errors->first('end_date')">
                 <x-input.date
-                    wire:model.defer="end_date"
+                    wire:model="end_date"
                     id="end_date"
                     placeholder="MM/DD/YYYY"
                 >
