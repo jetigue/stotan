@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Training;
 
 use App\Models\Training\Macrocycle;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Planner extends Component
 {
-    public $expandRecord = false;
+    use WithPagination;
+
     public $showCreateModal = false;
     public $showConfirmModal = false;
     public $macrocycle;
@@ -37,7 +39,6 @@ class Planner extends Component
     {
         $this->macrocycle->delete();
         $this->showConfirmModal = false;
-        $this->expandRecord = false;
     }
 
     public function cancel()
@@ -51,7 +52,7 @@ class Planner extends Component
     public function render()
     {
         return view('livewire.training.planner', [
-            'macrocycles' => Macrocycle::all()
+            'macrocycles' => Macrocycle::with('mesocycles')->get()
         ]);
     }
 }

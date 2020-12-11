@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Training\Planner;
+use App\Http\Livewire\Training\ShowMacrocycle;
 use App\Models\Training\Macrocycle;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/training/planner', Planner::class);
+Route::get('training/macrocycles/{macrocycle}', ShowMacrocycle::class);

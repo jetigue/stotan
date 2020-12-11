@@ -24,9 +24,10 @@ class MacrocycleFactory extends Factory
     {
         return [
             'name' => $this->faker->randomElement(['Track', 'Cross Country', 'Indoor']) . ' ' . $this->faker->year,
-            'begin_date' => $this->faker->date($format = 'Y-m-d', $max = '2019-01-01'),
-            'end_date' => $this->faker->date($format = 'Y-m-d', $max = '2021-01-01'),
+            'begin_date' => $this->faker->randomElement(['2020-05-01', '2020-01-01', '2020-01-12']),
+            'end_date' => $this->faker->randomElement(['2020-11-11', '2020-12-01', '2021-01-12']),
             'team_id' => Team::factory(),
+
         ];
     }
 }

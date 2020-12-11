@@ -2,37 +2,49 @@
 
 namespace App\Models\Training;
 
+use App\Models\Calendar;
 use App\Traits\BelongsToTeam;
+use App\Traits\DateFormatsForTrainingPhases;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Macrocycle extends Model
 {
-    use HasFactory, BelongsToTeam;
+    use HasFactory, BelongsToTeam, DateFormatsForTrainingPhases;
 
     protected $fillable = ['name', 'begin_date', 'end_date', 'team_id'];
 
-    protected $dates = ['begin_date', 'end_date'];
+    protected $casts = [
+        'begin_date' => 'date',
+        'end_date' => 'date'
+    ];
 
-    protected $appends = ['number_of_weeks'];
+    protected $appends = [
+        'number_of_weeks',
+        'number_of_mesocycles',
+        'begin_date_for_editing',
+        'end_date_for_editing',
+        'period_of_all_days_in_months',
+        'period_of_days',
+        'months',
+        'beginning_day',
+    ];
 
-    public function getBeginDateForHumansAttribute()
+    public function mesocycles(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->begin_date->format('M, d Y');
+        return $this->hasMany(Mesocycle::class);
     }
 
-    public function getEndDateForHumansAttribute()
+    public function getNumberOfMesocyclesAttribute(): int
     {
-        return $this->end_date->format('M, d Y');
+        return count($this->mesocycles);
     }
 
-    public function getNumberOfWeeksAttribute()
+    public function addMesocycle($mesocycles): Model
     {
-        $end = Carbon::parse($this->end_date);
-
-        $begin = Carbon::parse($this->begin_date);
-
-        return $end->diffInWeeks($begin);
+        return $this->mesocycles()->create($mesocycles);
     }
+
 }

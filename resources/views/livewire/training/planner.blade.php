@@ -1,96 +1,106 @@
-<div>
+<div class="w-full">
     <x-slot name="header">
         <h2 class="text-3xl text-cool-gray-800 leading-tight">
             Planner
         </h2>
     </x-slot>
 
-    <div class="sm:w-full md:w-2/3">
-            <x-card.card-with-header-and-footer>
-                <x-slot name="header">
-                    <x-card.heading-with-action>
-                        Macrocycles
+    <div class="flex w-full">
+        <x-card.card-gray-body>
+            <x-slot name="header">
+                <x-card.heading-with-action>
+                    Training Cycles
 
-                        <x-slot name="action">
-                            <x-button.primary wire:click="showCreateModal">
-                                Add a Macrocycle
-                            </x-button.primary>
-                            <div>
-                                @include('partials.training.create-macrocycle-modal')
-                            </div>
+                    <x-slot name="action">
+                        <x-button.primary wire:click="showCreateModal">
+                            <x-icon.plus></x-icon.plus>
+                            Create a Training Cycle
+                        </x-button.primary>
+                        <div>
+                            @include('partials.training.create-macrocycle-modal')
+                        </div>
+                    </x-slot>
+                </x-card.heading-with-action>
+            </x-slot>
 
-                        </x-slot>
-                    </x-card.heading-with-action>
-                </x-slot>
-                <div class="space-y-2">
-                    @foreach($macrocycles as $macrocycle)
-                        <div x-data="{show: @entangle('expandRecord')}" class="w-full bg-white hover:bg-cool-gray-50 rounded-sm">
-                            <div  class="w-full flex-col">
-                                <div  class="w-full flex items-center py-4">
-                                    <div class="w-11/12 flex items-baseline">
-                                        <div class="flex-col w-1/3 ml-6">
-                                            <p class="text-md font-medium text-blue-800">
-                                                {{ $macrocycle->name }}
-                                            </p>
-                                            <p class="text-sm font-medium text-cool-gray-400 px-2">
-                                                status
-                                            </p>
-                                        </div>
-                                        <div class="flex-col w-1/3 text-sm justify-center text-center">
-                                            <p class="text-indigo-600 font-medium">
-                                                {{$macrocycle->number_of_weeks}} Total Weeks
-                                            </p>
-                                            <p class="flex text-sm text-cool-gray-400 items-center justify-center space-x-1.5">
-                                                <span>{{ $macrocycle->begin_date_for_humans }}</span>
-                                                <x-icon.arrow-right></x-icon.arrow-right>
-                                                <span>{{ $macrocycle->end_date_for_humans }}</span>
-                                            </p>
-                                        </div>
-                                        <div class="flex-col w-1/3 text-sm justify-center text-center">
-                                            <p class="text-indigo-600 font-medium">
-                                                10
-                                            </p>
-                                            <p class="flex text-sm text-cool-gray-400 items-center justify-center space-x-1.5">
-                                                Mesocycles
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="flex w-1/12 justify-center">
-                                        <a x-show="show === false" @click="show = true">
-                                            <x-icon.chevron-right/>
-                                        </a>
-                                        <a x-show="show === true" @click="show = false">
-                                            <x-icon.chevron-down/>
-                                        </a>
-                                    </div>
+            <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach($macrocycles as $macrocycle)
+                  <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+                    <div class="w-full flex items-center justify-between p-6 space-x-6">
+                      <div class="flex-1 truncate">
+                        <div class="flex items-center space-x-3">
+                          <h3 class="text-cool-gray-900 text-sm font-medium truncate">
+                              <a href="/training/macrocycles/{{ $macrocycle->id }}">
+                                  {{ $macrocycle->name }}
+                              </a>
+
+                          </h3>
+                          <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">Admin</span>
+                        </div>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Regional Paradigm Technician</p>
+                      </div>
+                        <x-dropdown.dropdown>
+                            <x-slot name="trigger">
+                                <div class="text-gray-600">
+                                    <x-icon.dots-vertical></x-icon.dots-vertical>
                                 </div>
-                                <div x-show="show">
-                                    <div class="flex w-full justify-end space-x-2 px-4">
-                                        <button
-                                            type="button"
-                                            wire:click="edit({{$macrocycle->id}})"
-                                        >
-                                            <x-icon.edit></x-icon.edit>
-                                        </button>
+                            </x-slot>
+                            <x-slot name="content">
+                                <x-dropdown.link wire:click="edit({{$macrocycle->id}})">
+                                        Edit
+                                </x-dropdown.link>
+                                <x-dropdown.link wire:click="confirmDelete({{ $macrocycle->id }})">
+                                        Delete
+                                </x-dropdown.link>
+                            </x-slot>
+                        </x-dropdown.dropdown>
+                    </div>
+                    <div>
+                      <div class="-mt-px flex divide-x divide-gray-200">
+                        <div class="w-0 flex-1 flex">
+                          <div class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-2 border border-transparent rounded-bl-lg">
 
-                                        <button
-                                            type="button"
-                                            wire:click="confirmDelete({{ $macrocycle->id }})"
-                                        >
-                                            <x-icon.trash></x-icon.trash>
-                                        </button>
+                              <div class="flex text-cool-gray-600 items-center justify-center justify-around">
+                                  <div class="flex text-xl">
+                                      {{ $macrocycle->number_of_mesocycles }}
+                                  </div>
+
+                                  <div class="flex w-1/2 text-cool-gray-500 text-xs">
+                                      @if ($macrocycle->number_of_mesocycles === 1)
+                                          Training Phase
+                                      @else
+                                          Training Phases
+                                      @endif
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="-ml-px w-0 flex-1 flex">
+                            <div class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-2 border border-transparent rounded-bl-lg">
+
+                                <div class="flex text-cool-gray-600 items-center justify-center justify-around">
+                                    <div class="flex text-xl">
+                                        {{ $macrocycle->number_of_weeks}}
+                                    </div>
+
+                                    <div class="flex w-1/2 text-cool-gray-500 text-xs">
+                                        @if ($macrocycle->number_of_weeks === 1)
+                                            Total Week
+                                        @else
+                                            Total Weeks
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-                <x-slot name="footer"></x-slot>
-            </x-card.card-with-header-and-footer>
+                      </div>
+                    </div>
+                  </li>
+                @endforeach
+            </ul>
+        </x-card.card-gray-body>
+</div>
 
 
-            @include('partials.training.confirm-macrocycle-delete-modal')
-
-
-    </div>
+    @include('partials.training.confirm-macrocycle-delete-modal')
 </div>

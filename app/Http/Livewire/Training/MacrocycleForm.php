@@ -9,8 +9,8 @@ class MacrocycleForm extends Component
 {
     public $macrocycle = null;
     public $name;
-    public $begin_date;
-    public $end_date;
+    public $begin_date_for_editing;
+    public $end_date_for_editing;
     public $team_id;
 
     protected $listeners = [
@@ -19,10 +19,15 @@ class MacrocycleForm extends Component
         'editMacrocycle' => 'edit'
     ];
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     protected $rules = [
         'name' => 'required',
-        'begin_date' => 'required|date',
-        'end_date' => 'required|date'
+        'begin_date_for_editing' => 'required|date',
+        'end_date_for_editing' => 'required|date'
     ];
 
     public function edit(Macrocycle $macrocycle)
@@ -30,8 +35,8 @@ class MacrocycleForm extends Component
         $this->macrocycle = $macrocycle;
 
         $this->name = $this->macrocycle->name;
-        $this->begin_date = $this->macrocycle->begin_date;
-        $this->end_date = $this->macrocycle->end_date;
+        $this->begin_date_for_editing = $this->macrocycle->begin_date_for_editing;
+        $this->end_date_for_editing = $this->macrocycle->end_date_for_editing;
     }
 
     public function submitForm()
@@ -40,8 +45,8 @@ class MacrocycleForm extends Component
 
         $macrocycle = [
             'name' => $this->name,
-            'begin_date' => $this->begin_date,
-            'end_date' => $this->end_date,
+            'begin_date' => $this->begin_date_for_editing,
+            'end_date' => $this->end_date_for_editing,
             'team_id' => session('team_id'),
         ];
 
@@ -62,8 +67,8 @@ class MacrocycleForm extends Component
         $this->macrocycle = null;
 
         $this->name = '';
-        $this->begin_date = '';
-        $this->end_date = '';
+        $this->begin_date_for_editing = '';
+        $this->end_date_for_editing = '';
     }
 
     public function render()

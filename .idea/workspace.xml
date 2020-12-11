@@ -5,33 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7d8282-56c6-4d4e-a622-0e3ea1196e11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/stotan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stotan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/Show.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/MacrocycleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/MacrocycleForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Planner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Planner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/Training/MacrocycleFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Training/MacrocycleFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/app-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/app-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/group.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/group.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/lists/two-column.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/date.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/date.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycle-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycle-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/planner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/planner.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/confirm-macrocycle-delete-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/confirm-macrocycle-delete-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/training/planner/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/training/planner/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +39,7 @@
     <bower-package value="" />
     <bower.json value="" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
@@ -188,7 +177,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials/training" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -199,16 +188,26 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.TeamScopeTest.test_a_user_can_only_create_a_user_in_his_team_even_if_other_team_is_provided">
-    <configuration name="TeamScopeTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\TeamScopeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/TeamScopeTest.php" scope="Class" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\partials\training" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.MacrocycleTest.a_user_can_create_a_macrocycle">
+    <configuration name="MacrocycleTest.a_user_can_create_a_macrocycle" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\MacrocycleTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/MacrocycleTest.php" method="a_user_can_create_a_macrocycle" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="TeamScopeTest.a_model_has_a_team_id_on_a_migration" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\TeamScopeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/TeamScopeTest.php" method="a_model_has_a_team_id_on_a_migration" scope="Method" />
+    <configuration name="TeamScopeTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.3" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="Tests\Feature\TeamScopeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/TeamScopeTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="TeamScopeTest.a_user_can_only_see_users_on_the_same_team" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -229,11 +228,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.TeamScopeTest.test_a_user_can_only_create_a_user_in_his_team_even_if_other_team_is_provided" />
+        <item itemvalue="PHPUnit.MacrocycleTest.a_user_can_create_a_macrocycle" />
         <item itemvalue="PHPUnit.TeamScopeTest" />
+        <item itemvalue="PHPUnit.TeamScopeTest.test_a_user_can_only_create_a_user_in_his_team_even_if_other_team_is_provided" />
         <item itemvalue="PHPUnit.TeamScopeTest.a_user_can_only_see_users_on_the_same_team" />
         <item itemvalue="PHPUnit.TeamScopeTest.test_a_user_can_only_create_a_user_in_his_team" />
-        <item itemvalue="PHPUnit.TeamScopeTest.a_model_has_a_team_id_on_a_migration" />
       </list>
     </recent_temporary>
   </component>
@@ -261,6 +260,21 @@
       <workItem from="1605807235774" duration="1406000" />
       <workItem from="1605808654476" duration="223000" />
       <workItem from="1605808887258" duration="6750000" />
+      <workItem from="1605879999714" duration="8365000" />
+      <workItem from="1605987215420" duration="406000" />
+      <workItem from="1605987684508" duration="3166000" />
+      <workItem from="1606501194811" duration="181000" />
+      <workItem from="1606501431544" duration="25971000" />
+      <workItem from="1606840950192" duration="7032000" />
+      <workItem from="1606864546647" duration="6528000" />
+      <workItem from="1606935978143" duration="4755000" />
+      <workItem from="1607013224422" duration="1120000" />
+      <workItem from="1607014515941" duration="9327000" />
+      <workItem from="1607034658584" duration="26310000" />
+      <workItem from="1607119431790" duration="10514000" />
+      <workItem from="1607386381424" duration="43525000" />
+      <workItem from="1607609069289" duration="15774000" />
+      <workItem from="1607646408166" duration="179000" />
     </task>
     <servers />
   </component>
