@@ -30,6 +30,7 @@ class Macrocycle extends Model
         'period_of_days',
         'months',
         'beginning_day',
+        'number_of_unassigned_days'
     ];
 
     public function mesocycles(): \Illuminate\Database\Eloquent\Relations\HasMany
@@ -45,6 +46,26 @@ class Macrocycle extends Model
     public function addMesocycle($mesocycles): Model
     {
         return $this->mesocycles()->create($mesocycles);
+    }
+
+    public function getNumberOfUnassignedDaysAttribute()
+    {
+//        if (count($this->mesocycles) === 0)
+//        {
+//            return Carbon::parse($this->begin_date)->daysUntil($this->end_date);
+//        }
+
+//        $sum = 0;$this->mesocycles
+
+        $mesocycles = Mesocycle::where('macrocycle_id', $this->id)->get();
+        $value = 0;
+
+        foreach ($mesocycles as $mesocycle)
+        {
+            $value +=  $mesocycle->number_of_days;
+        }
+
+        return $this->number_of_days - $value;
     }
 
 }

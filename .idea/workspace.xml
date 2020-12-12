@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7d8282-56c6-4d4e-a622-0e3ea1196e11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/stotan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stotan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/MacrocycleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/MacrocycleForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Planner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Planner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/Training/MacrocycleFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Training/MacrocycleFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/date.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/date.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycle-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycle-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/planner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/planner.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/confirm-macrocycle-delete-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/confirm-macrocycle-delete-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/training/planner/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/training/planner/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Training/Mesocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Mesocycle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/DateFormatsForTrainingPhases.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/DateFormatsForTrainingPhases.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/card-gray-body.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/card-gray-body.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/card-with-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/card-with-header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/show-macrocycle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/show-macrocycle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/macrocycle-mini-calendars.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/macrocycle-mini-calendars.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +31,11 @@
     <node-interpreter value="project" />
     <bower-package value="" />
     <bower.json value="" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupnpm">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
@@ -169,6 +167,7 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -188,7 +187,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -274,7 +273,9 @@
       <workItem from="1607119431790" duration="10514000" />
       <workItem from="1607386381424" duration="43525000" />
       <workItem from="1607609069289" duration="15774000" />
-      <workItem from="1607646408166" duration="179000" />
+      <workItem from="1607646408166" duration="6640000" />
+      <workItem from="1607696686873" duration="14617000" />
+      <workItem from="1607716561724" duration="1296000" />
     </task>
     <servers />
   </component>

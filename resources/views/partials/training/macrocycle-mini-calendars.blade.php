@@ -65,7 +65,7 @@
                                     @foreach($mesocycles as $mesocycle)
                                         @if($date >= $mesocycle->begin_date && $date <= $mesocycle->end_date)
                                             <div class="absolute w-full min-h-full z-10" style="background: {{$mesocycle->color}}">
-                                                <p class="text-gray-400 text-tiny">
+                                                <p class="text-cool-gray-100 text-tiny">
                                                     {{ $date->format('j') }}
                                                 </p>
                                             </div>

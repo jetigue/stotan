@@ -15,7 +15,8 @@ class Mesocycle extends Model
 
     protected $casts = [
         'begin_date' => 'date',
-        'end_date' => 'date'
+        'end_date' => 'date',
+        'number_of_days' => 'integer'
     ];
 
     protected $appends = [
@@ -25,7 +26,9 @@ class Mesocycle extends Model
         'period_of_all_days_in_months',
         'period_of_days',
         'months',
-        'weeks'];
+        'weeks',
+        'number_of_days'
+    ];
 
     public function macrocycle(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
