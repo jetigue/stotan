@@ -32,11 +32,6 @@ trait DateFormatsForTrainingPhases
 
     public function getNumberOfDaysAttribute(): int
     {
-//        $end = Carbon::parse($this->end_date);
-//
-//        $begin = Carbon::parse($this->begin_date);
-//
-//        return $end->diffInDays($begin);
         return count(CarbonPeriod::create($this->begin_date, $this->end_date));
     }
 

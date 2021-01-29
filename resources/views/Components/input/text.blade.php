@@ -11,5 +11,6 @@
 
 
     <input {{ $attributes }}
-           class="{{ $leadingAddOn ? 'rounded-none rounded-r-md' : '' }} form-input flex-1 block w-full px-3 py-2 sm:text-sm sm:leading-5">
+           type="text"
+           class="{{ $leadingAddOn ? 'rounded-none rounded-r-md' : '' }} flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-md sm:text-sm border-gray-300">
 </div>

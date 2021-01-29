@@ -1,18 +1,6 @@
-<div class="flex justify-around py-2">
-    <div class="flex flex-col text-center">
-        <p class="text-sm text-cool-gray-400">Begin Date</p>
-        <p>{{ $macrocycle->begin_date->format('F j, Y') }}</p>
-    </div>
-    <div class="flex flex-col text-center">
-        <p class="text-sm text-cool-gray-400">End Date</p>
-        <p>{{ $macrocycle->end_date->format('F j, Y') }}</p>
-    </div>
-</div>
-<hr>
-
 <div class="flex flex-wrap w-full">
     @foreach ($macrocycle->months as $month)
-        <div class="flex w-1/3 p-4">
+        <div class="flex w-1/3 py-3 px-4">
             <div class="flex-col w-full">
                 <div class="flex justify-center mb-2 text-center">
                     <p class="text-xs">

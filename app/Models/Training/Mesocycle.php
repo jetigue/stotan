@@ -34,4 +34,9 @@ class Mesocycle extends Model
     {
         return $this->belongsTo(Macrocycle::class, 'macrocycle_id');
     }
+
+    public function trainingDays(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(TrainingDay::class)->orderBy('training_day');
+    }
 }

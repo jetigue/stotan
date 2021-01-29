@@ -6,14 +6,39 @@
   <component name="ChangeListManager">
     <list default="true" id="3b7d8282-56c6-4d4e-a622-0e3ea1196e11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/MesocycleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/MesocycleForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Planner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/ShowMacrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/ShowMacrocycle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Mesocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Mesocycle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Traits/DateFormatsForTrainingPhases.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/DateFormatsForTrainingPhases.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/card-gray-body.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/card-gray-body.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/basic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/basic.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Components/card/card-with-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/card-with-header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/card/heading-with-action.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/dropdown/link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/dropdown/link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/calendar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/chevron-down.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/chevron-down.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/chevron-right.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/chevron-right.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/collection.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/dots-vertical.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/dots-vertical.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/plus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/plus.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/text.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/text.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/textarea.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/textarea.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/mesocycle-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/mesocycle-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/planner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/show-macrocycle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/show-macrocycle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/create-macrocycle-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/create-macrocycle-modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/training/macrocycle-mini-calendars.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/macrocycle-mini-calendars.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +51,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -187,12 +220,18 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\partials\training" />
+      <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\partials\training\runTypes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\Components\nav" />
+      <recent name="C:\xampp\htdocs\laravel\stotan\app\Models\Training\Runs" />
+      <recent name="C:\xampp\htdocs\laravel\stotan\database\factories\Training\RunTypes" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.MacrocycleTest.a_user_can_create_a_macrocycle">
@@ -227,11 +266,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.MacrocycleTest.a_user_can_create_a_macrocycle" />
-        <item itemvalue="PHPUnit.TeamScopeTest" />
         <item itemvalue="PHPUnit.TeamScopeTest.test_a_user_can_only_create_a_user_in_his_team_even_if_other_team_is_provided" />
-        <item itemvalue="PHPUnit.TeamScopeTest.a_user_can_only_see_users_on_the_same_team" />
         <item itemvalue="PHPUnit.TeamScopeTest.test_a_user_can_only_create_a_user_in_his_team" />
+        <item itemvalue="PHPUnit.TeamScopeTest.a_user_can_only_see_users_on_the_same_team" />
+        <item itemvalue="PHPUnit.TeamScopeTest" />
+        <item itemvalue="PHPUnit.MacrocycleTest.a_user_can_create_a_macrocycle" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +314,39 @@
       <workItem from="1607609069289" duration="15774000" />
       <workItem from="1607646408166" duration="6640000" />
       <workItem from="1607696686873" duration="14617000" />
-      <workItem from="1607716561724" duration="1296000" />
+      <workItem from="1607716561724" duration="1895000" />
+      <workItem from="1608045154759" duration="34349000" />
+      <workItem from="1608216423639" duration="13494000" />
+      <workItem from="1608252460820" duration="4813000" />
+      <workItem from="1608770992832" duration="179000" />
+      <workItem from="1608771225849" duration="4378000" />
+      <workItem from="1609630303307" duration="83000" />
+      <workItem from="1609630503309" duration="403000" />
+      <workItem from="1609630938555" duration="14811000" />
+      <workItem from="1609874767345" duration="3876000" />
+      <workItem from="1609951332296" duration="25861000" />
+      <workItem from="1610064021430" duration="5646000" />
+      <workItem from="1610113879750" duration="11438000" />
+      <workItem from="1610137168052" duration="475000" />
+      <workItem from="1610374796372" duration="12530000" />
+      <workItem from="1610393502502" duration="3420000" />
+      <workItem from="1610563714391" duration="2947000" />
+      <workItem from="1610638929962" duration="731000" />
+      <workItem from="1610721914894" duration="701000" />
+      <workItem from="1610727525976" duration="4710000" />
+      <workItem from="1611063918197" duration="168000" />
+      <workItem from="1611064162217" duration="8683000" />
+      <workItem from="1611103606044" duration="7465000" />
+      <workItem from="1611153647401" duration="435000" />
+      <workItem from="1611154115446" duration="22760000" />
+      <workItem from="1611323023757" duration="2869000" />
+      <workItem from="1611326808554" duration="9934000" />
+      <workItem from="1611361419012" duration="18854000" />
+      <workItem from="1611619051368" duration="11527000" />
+      <workItem from="1611701827841" duration="8215000" />
+      <workItem from="1611752453224" duration="22432000" />
+      <workItem from="1611849966741" duration="15877000" />
+      <workItem from="1611940484727" duration="7655000" />
     </task>
     <servers />
   </component>

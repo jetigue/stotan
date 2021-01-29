@@ -48,14 +48,15 @@ class Macrocycle extends Model
         return $this->mesocycles()->create($mesocycles);
     }
 
-    public function getNumberOfUnassignedDaysAttribute()
+    public function getIsCurrentAttribute()
     {
-//        if (count($this->mesocycles) === 0)
-//        {
-//            return Carbon::parse($this->begin_date)->daysUntil($this->end_date);
-//        }
+        $currentDate = Carbon::today();
 
-//        $sum = 0;$this->mesocycles
+        return $this->end_date >= $currentDate;
+    }
+
+    public function getNumberOfUnassignedDaysAttribute(): int
+    {
 
         $mesocycles = Mesocycle::where('macrocycle_id', $this->id)->get();
         $value = 0;

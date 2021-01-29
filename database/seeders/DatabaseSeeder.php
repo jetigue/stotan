@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Team;
+use App\Models\Training\Intensity;
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Team::factory()->times(5)->hasUsers(10)->hasMacrocycles(3)->create();
-        $this->call(CalendarSeeder::class);
+
+        $this->call([
+            TrainingSessionsSeeder::class,
+        ]);
     }
 }

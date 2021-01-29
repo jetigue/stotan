@@ -4,8 +4,6 @@
             <span x-show="editing === true">Edit Macrocycle</span>
             <span x-show="editing === false">Create a Macrocycle</span>
         </div>
-
-
     </x-slot>
 
     <x-slot name="content">
@@ -20,6 +18,5 @@
                 <span x-show="editing === false">Create</span>
             </x-button.primary>
         </div>
-
     </x-slot>
 </x-modal.dialog>

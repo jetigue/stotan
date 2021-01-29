@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Training;
 
-use App\Models\Calendar;
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
 use Livewire\Component;
@@ -54,11 +53,8 @@ class ShowMacrocycle extends Component
 
     public function render()
     {
-
         return view('livewire.training.show-macrocycle', [
-        'mesocycles' => Mesocycle::where('macrocycle_id', $this->macrocycle->id)->orderBy($this->orderBy)->get()
+            'mesocycles' => Mesocycle::where('macrocycle_id', $this->macrocycle->id)->orderBy($this->orderBy)->get()
         ]);
-
-
     }
 }

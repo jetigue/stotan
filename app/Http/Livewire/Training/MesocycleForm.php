@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Training;
 
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
+use App\Models\Training\TrainingDay;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 
@@ -30,7 +31,7 @@ class MesocycleForm extends Component
     }
 
     public function rules()
-    {        
+    {
         return [
             'name' => 'required',
             'begin_date_for_editing' => 'required|date|after__or_equal:macrocycle.begin_date',
@@ -60,7 +61,6 @@ class MesocycleForm extends Component
             'color' => $this->color,
             'team_id' => session('team_id'),
             'macrocycle_id' => $this->macrocycle->id
-
         ];
 
         if ($this->mesocycle) {
@@ -68,21 +68,32 @@ class MesocycleForm extends Component
 
             $this->emit('hideModal');
         } else {
-            Mesocycle::create($mesocycle);
+            $mesocycle = Mesocycle::create($mesocycle);
 
+            $this->createTrainingDays($mesocycle);
             $this->resetForm();
             $this->emit('hideModal');
         }
     }
 
+    public function createTrainingDays($mesocycle): void
+    {
+        foreach($mesocycle->period_of_days as $day) {
+            $trainingDay = [
+                'team_id' => session('team_id'),
+                'mesocycle_id' => $mesocycle->id,
+                'training_day' => $day
+            ];
+
+            TrainingDay::create($trainingDay);
+        }
+    }
+
     public function resetForm()
     {
-        $this->mesocycle = null;
-
-        $this->name = '';
-        $this->begin_date_for_editing = '';
-        $this->end_date_for_editing = '';
-        $this->color = '#000000';
+        $this->reset([
+            'mesocycle', 'name', 'begin_date_for_editing', 'end_date_for_editing', 'color'
+        ]);
     }
 
     public function render()

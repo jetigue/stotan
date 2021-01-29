@@ -1,41 +1,42 @@
-<div class="w-full min-h-full">
-    <x-slot name="header"></x-slot>
-
-    <div class="text-center">
-        <div class="text-3xl">{{ $macrocycle->name }} Training Cycle</div>
-        <div class="flex justify-center space-x-8">
-            <div class="text-xl">{{ $macrocycle->number_of_weeks }} Weeks</div>
-            <div class="text-xl">{{ $macrocycle->number_of_mesocycles }} Training Phases</div>
-        </div>
-
-    </div>
+<div class="min-h-full">
+    <x-slot name="breadcrumbs">
+        <x-breadcrumb.back href="/planner" />
+        <x-breadcrumb.menu>
+            <x-breadcrumb.item href="/training/planner" :leadingArrow="false">Training</x-breadcrumb.item>
+            <x-breadcrumb.item href="/">Training Cycles</x-breadcrumb.item>
+        </x-breadcrumb.menu>
+    </x-slot>
+    <x-slot name="header">
+        {{ $macrocycle->name }} <span class="text-cool-gray-400">Training Cycle</span>
+    </x-slot>
 
     <div class="flex w-full">
         <div class="md:w-1/2">
             <div class="flex-col w-full px-4">
-                <x-card.basic>
-                @if($macrocycle->number_of_unassigned_days !== 0)
-                    <div class="rounded-md bg-yellow-100 px-4 py-3 items-center">
-                      <div class="flex">
-                        <div class="flex-shrink-0">
-                            <x-icon.exclamation></x-icon.exclamation>
-                        </div>
-                        <div class="ml-3 flex-1 md:flex md:justify-between">
-                          <p class="text-sm text-blue-700">
-                            There are {{ $macrocycle->number_of_unassigned_days }} unassigned days in this training cycle!
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                @endif
-
-
+                <x-card.card-with-header class="min-h-full">
+                    <x-slot name="header">
+                        @if($macrocycle->number_of_unassigned_days !== 0)
+                           <x-message.warning>
+                               There are {{ $macrocycle->number_of_unassigned_days }} unassigned days in this training cycle!
+                           </x-message.warning>
+                        @endif
+                            <div class="flex justify-around -my-1">
+                                <div class="flex flex-col text-center">
+                                    <p class="text-sm text-cool-gray-400">Begin Date</p>
+                                    <p>{{ $macrocycle->begin_date->format('F j, Y') }}</p>
+                                </div>
+                                <div class="flex flex-col text-center">
+                                    <p class="text-sm text-cool-gray-400">End Date</p>
+                                    <p>{{ $macrocycle->end_date->format('F j, Y') }}</p>
+                                </div>
+                            </div>
+                    </x-slot>
                     @include('partials.training.macrocycle-mini-calendars')
-                </x-card.basic>
+                </x-card.card-with-header>
             </div>
         </div>
-        <div class="flex md:w-1/2 px-4">
-            <x-card.card-gray-body>
+        <div class="flex flex-col md:w-1/2 px-4">
+            <x-card.card-with-header>
                 <x-slot name="header">
                     <x-card.heading-with-action>
                         Training Phases
@@ -50,7 +51,7 @@
                         </x-slot>
                     </x-card.heading-with-action>
                 </x-slot>
-                <div class="flex-col space-y-4">
+                <div class="flex-col space-y-5">
                     @if(count($macrocycle->mesocycles) > 0)
                         @foreach($mesocycles as $mesocycle)
                             <div class="w-full bg-white rounded-md shadow-sm">
@@ -60,11 +61,14 @@
                                         style="background: {{$mesocycle->color}}"
                                     >
                                     </div>
-                                    <div class="flex items-center justify-between w-full">
+                                    <div class="flex items-center justify-between w-full rounded-r-md" style="border: 1px solid {{$mesocycle->color}}">
                                         <div class="w-3/4 px-4 py-2">
                                             <div class="flex-col">
                                                 <div class="flex">
-                                                    <div class="font-medium mr-4">{{ $mesocycle->name }} </div>
+                                                    <a
+                                                        href="/training/macrocycles/{{ $macrocycle->id }}/mesocycles/{{$mesocycle->id}}"
+                                                        class="font-medium mr-4">{{ $mesocycle->name }}
+                                                    </a>
 
                                                 </div>
                                                 <div class="flex text-sm text-cool-gray-400">
@@ -100,7 +104,7 @@
                         No Mesocycles
                     @endif
                 </div>
-            </x-card.card-gray-body>
+            </x-card.card-with-header>
         </div>
     </div>
 </div>

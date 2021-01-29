@@ -2,6 +2,6 @@
     <textarea
             {{ $attributes }}
             rows="3"
-            class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+            class="shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
     </textarea>
 </div>
