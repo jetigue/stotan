@@ -1,6 +1,5 @@
 <div>
     <x-card.basic>
-
         <div class="flex-col">
             <div class="flex justify-between items-center mb-4">
                 <header class="py-2 text-xl text-gray-600 italic">Intermittent Runs</header>
@@ -20,7 +19,6 @@
                             Name
                         </x-table.heading>
                     </x-table.header-row>
-
                 </x-slot>
                 <x-slot name="body">
                     @foreach($intermittentRuns as $intermittentRun)

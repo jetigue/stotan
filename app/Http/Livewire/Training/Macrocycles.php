@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Training;
 use App\Models\Training\Macrocycle;
 use Carbon\Carbon;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class Macrocycles extends Component
 {
@@ -15,7 +14,8 @@ class Macrocycles extends Component
     public $editing = false;
 
     protected $listeners = [
-        'hideModal' => 'hideCreateModal'
+        'hideModal' => 'hideCreateModal',
+        'showCreateModal' => 'showCreateModal'
     ];
 
     public function showCreateModal() { $this->showCreateModal = true; }
@@ -53,7 +53,13 @@ class Macrocycles extends Component
         return view('livewire.training.macrocycles', [
             'macrocycles' => Macrocycle::query()
                 ->whereDate('end_date', '>=', Carbon::today())
-                ->with('mesocycles')->get()
+                ->with('mesocycles')->get(),
+
+            'archivedMacrocycles' => Macrocycle::query()
+                ->whereDate('end_date', '<=', Carbon::today())
+                ->with('mesocycles')
+                ->orderByDesc('end_date')
+                ->get()
         ]);
     }
 }

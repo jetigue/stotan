@@ -101,7 +101,7 @@
                         @endforeach
                         @include('partials.training.confirm-mesocycle-delete-modal')
                     @else
-                        No Mesocycles
+                        This training cycle currently does not have any training phases.
                     @endif
                 </div>
             </x-card.card-with-header>

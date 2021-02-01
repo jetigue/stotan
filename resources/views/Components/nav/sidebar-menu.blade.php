@@ -4,8 +4,8 @@
              src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
              alt="Workflow">
     </div>
-    <div class="mt-5 flex-grow flex flex-col">
-        <nav class="flex-1 bg-white space-y-1" aria-label="Sidebar">
+    <div class="mt-5 flex-grow flex bg-white flex-col ">
+        <nav class="flex-1 space-y-1" aria-label="Sidebar">
             {{ $slot }}
         </nav>
     </div>
