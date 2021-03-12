@@ -2,6 +2,7 @@
 
 namespace App\Models\Training;
 
+use App\Models\Training\Runs\SteadyRun;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,7 +26,13 @@ class Intensity extends Model
         'name',
         'percentVO2Max',
         'percentMaxHR',
+        'jd_points',
         'description',
         'purpose'
     ];
+
+    public function steadyRuns(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(SteadyRun::class, 'id', 'training_intensity_id');
+    }
 }

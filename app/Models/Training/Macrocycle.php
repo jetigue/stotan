@@ -35,7 +35,7 @@ class Macrocycle extends Model
 
     public function mesocycles(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Mesocycle::class);
+        return $this->hasMany(Mesocycle::class)->orderBy('end_date');
     }
 
     public function getNumberOfMesocyclesAttribute(): int

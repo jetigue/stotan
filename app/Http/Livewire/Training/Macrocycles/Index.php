@@ -1,31 +1,32 @@
 <?php
 
-namespace App\Http\Livewire\Training;
+namespace App\Http\Livewire\Training\Macrocycles;
 
 use App\Models\Training\Macrocycle;
 use Carbon\Carbon;
 use Livewire\Component;
 
-class Macrocycles extends Component
+class Index extends Component
 {
-    public $showCreateModal = false;
+    public $showFormModal = false;
     public $showConfirmModal = false;
     public $macrocycle;
     public $editing = false;
 
     protected $listeners = [
-        'hideModal' => 'hideCreateModal',
-        'showCreateModal' => 'showCreateModal'
+        'hideModal' => 'hideModal',
+        'createMacrocycle' => 'showCreateModal',
+        'editMacrocycle' => 'editMacrocycle',
+        'confirmDelete' => 'confirmDelete',
     ];
 
-    public function showCreateModal() { $this->showCreateModal = true; }
-    public function hideCreateModal() { $this->showCreateModal = false; }
+    public function showCreateModal() { $this->showFormModal = true; }
+    public function hideModal() { $this->showFormModal = false; }
 
-    public function edit(Macrocycle $macrocycle)
+    public function editMacrocycle()
     {
-        $this->showCreateModal = true;
+        $this->showFormModal =true;
         $this->editing = true;
-        $this->emit('editMacrocycle', $macrocycle->id);
     }
 
     public function confirmDelete(Macrocycle $macrocycle)
@@ -42,18 +43,16 @@ class Macrocycles extends Component
 
     public function cancel()
     {
-        $this->showCreateModal = false;
-        $this->editing = false;
-
-        $this->emit('cancelCreate');
+        $this->showFormModal = false;
     }
 
     public function render()
     {
-        return view('livewire.training.macrocycles', [
+        return view('livewire.training.macrocycles.index', [
             'macrocycles' => Macrocycle::query()
                 ->whereDate('end_date', '>=', Carbon::today())
-                ->with('mesocycles')->get(),
+                ->with('mesocycles')
+                ->get(),
 
             'archivedMacrocycles' => Macrocycle::query()
                 ->whereDate('end_date', '<=', Carbon::today())

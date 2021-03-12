@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\BelongsToTeam;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Training\Runs\SteadyRun;
 use Illuminate\Database\Eloquent\Model;
 
 class Calendar extends Model
@@ -14,4 +13,10 @@ class Calendar extends Model
      * @var string
      */
     protected $table = 'calendar';
+
+    protected $casts = [
+        'calendar_date' => 'date'
+    ];
+
+
 }

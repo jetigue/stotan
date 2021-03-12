@@ -1,13 +1,15 @@
-<x-modal.dialog wire:model.defer="showCreateModal">
+<x-modal.dialog wire:model.defer="showFormModal">
     <x-slot name="title">
         <div x-data="{editing: @entangle('editing')}">
-            <span x-show="editing === true">Edit Macrocycle</span>
-            <span x-show="editing === false">Create a Macrocycle</span>
+            <span x-show="editing === true">Edit Training Phase</span>
+            <span x-show="editing === false">Create a Training Phase</span>
         </div>
+
+
     </x-slot>
 
     <x-slot name="content">
-        @livewire('training.macrocycle-form')
+        <livewire:training.mesocycles.mesocycle-form :macrocycle="$macrocycle" />
     </x-slot>
 
     <x-slot name="footer">
@@ -18,5 +20,6 @@
                 <span x-show="editing === false">Create</span>
             </x-button.primary>
         </div>
+
     </x-slot>
 </x-modal.dialog>

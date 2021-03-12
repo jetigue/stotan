@@ -5,7 +5,7 @@
     </x-slot>
     <x-slot name="footer">
         <x-button.secondary wire:click="$toggle('showConfirmModal')">Cancel</x-button.secondary>
-        <x-button.danger wire:click="destroy({{ $intermittentRun->id }})">Yes, Delete Intermittent Run
+        <x-button.danger wire:click="destroy({{ $intermittentRunType->id }})">Yes, Delete Intermittent Run
         </x-button.danger>
     </x-slot>
 </x-modal.confirmation>

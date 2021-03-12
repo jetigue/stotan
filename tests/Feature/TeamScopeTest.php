@@ -13,7 +13,9 @@ class TeamScopeTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
 
-    /** @test */
+    /** @tcd ..
+     * est
+     */
     public function a_model_has_a_team_id_on_a_migration()
     {
         $this->artisan('make:model Test -m');

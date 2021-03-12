@@ -21,12 +21,12 @@
                     </x-table.header-row>
                 </x-slot>
                 <x-slot name="body">
-                    @foreach($intermittentRuns as $intermittentRun)
+                    @foreach($intermittentRunTypes as $intermittentRunType)
                         <x-table.row class="items-start">
                             <x-table.cell>
-                                <div x-data="{ expanded: @entangle('isExpanded').defer }" class="flex justify-between">
+                                <div x-data=" {expanded: @entangle('isExpanded').defer} " class="flex justify-between">
                                     <div class="flex flex-col">
-                                        <div>{{ $intermittentRun->name }}</div>
+                                        <div>{{ $intermittentRunType->name }}</div>
                                         <div x-show="expanded"
                                              x-transition:enter="transition ease-out duration-200"
                                              x-transition:enter-start="transform opacity-0 scale-95"
@@ -35,21 +35,21 @@
                                              x-transition:leave-start="transform opacity-100 scale-100"
                                              x-transition:leave-end="transform opacity-0 scale-95"
                                         >
-                                            <div class="py-2">{{ $intermittentRun->description }}</div>
+                                            <div class="py-2">{{ $intermittentRunType->description }}</div>
                                             <div class="space-x-1">
                                                 <button
-                                                    wire:click="edit({{$intermittentRun->id}})"
+                                                    wire:click="edit({{$intermittentRunType->id}})"
                                                     type="button"
                                                     class="p-1"
                                                 >
-                                                    <x-icon.edit></x-icon.edit>
+                                                    <x-icon.edit />
                                                 </button>
                                                 <button
-                                                    wire:click="confirmDelete({{ $intermittentRun->id }})"
+                                                    wire:click="confirmDelete({{ $intermittentRunType->id }})"
                                                     type="button"
                                                     class="p-1"
                                                 >
-                                                    <x-icon.trash></x-icon.trash>
+                                                    <x-icon.trash />
                                                 </button>
                                             </div>
                                         </div>
@@ -61,12 +61,13 @@
                                 </div>
                             </x-table.cell>
                         </x-table.row>
+                        @include('partials.training.runTypes.confirm-intermittent-run-delete-modal')
                     @endforeach
                 </x-slot>
             </x-table.table>
             <div>
                 @include('partials.training.runTypes.create-intermittent-run-modal')
-                @include('partials.training.runTypes.confirm-intermittent-run-delete-modal')
+
             </div>
         </div>
     </x-card.basic>

@@ -8,7 +8,7 @@ class CreateMesocyclesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *z
      * @return void
      */
     public function up()
@@ -18,10 +18,17 @@ class CreateMesocyclesTable extends Migration
             $table->string('name', 50);
             $table->date('begin_date');
             $table->date('end_date');
-            $table->string('color', 7);
+            $table->unsignedTinyInteger('color_id');
+            $table->enum('microcycle_length', ['7', '10', '14'])->default('7');
+            $table->enum('view', ['table', 'calendar'])->default('table');
+            $table->string('slug')->unique();
             $table->foreignId('macrocycle_id')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('team_id')->index();
             $table->timestamps();
+
+            $table->foreign('color_id')
+                ->references('id')
+                ->on('colors');
         });
 
 

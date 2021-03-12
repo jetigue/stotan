@@ -2,6 +2,7 @@
 
 namespace App\Models\Training\RunTypes;
 
+use App\Models\Training\Runs\SteadyRun;
 use Database\Factories\Training\RunTypes\SteadyRunTypesFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,5 +30,10 @@ class Steady extends Model
     protected static function newFactory()
     {
         return SteadyRunTypesFactory::new();
+    }
+
+    public function steadyRuns(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(SteadyRun::class);
     }
 }

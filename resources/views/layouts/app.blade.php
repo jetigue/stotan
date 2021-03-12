@@ -50,9 +50,6 @@
         </div>
     </div>
 
-
-    <!-- Sidebar component, swap this element with another sidebar if you like -->
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="hidden lg:flex lg:flex-shrink-0">
         <div class="flex flex-col w-64 ">
             <x-nav.sidebar-menu>
@@ -107,18 +104,18 @@
             </div>
         </div>
 
-        <div class="flex-1 z-0 flex overflow-hidden bg-gray-100">
-            <main class="flex-1 z-0 focus:outline-none h-full" tabindex="0">
+        <div class="flex-1 z-0 flex overflow-hidden bg-gray-50">
+            <div class="flex-1 z-0 focus:outline-none h-full" tabindex="0">
                 <div class=" py-6 px-4 sm:px-6 lg:px-8">
                     {{ $slot }}
                 </div>
-            </main>
+            </div>
             @if (isset($aside))
-                <aside class="hidden xl:flex xl:flex-col flex-shrink-0 w-96 border-l border-gray-200 bg-gray-50">
+                <div class="hidden xl:flex xl:flex-col flex-shrink-0 w-80 border-l border-gray-200 bg-gray-50">
                     <div class="py-6 px-4 sm:px-6 lg:px-8">
                         {{ $aside }}
                     </div>
-                </aside>
+                </div>
             @endif
         </div>
     </div>

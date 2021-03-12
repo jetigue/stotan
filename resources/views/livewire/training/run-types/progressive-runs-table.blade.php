@@ -59,12 +59,13 @@
                                 </div>
                             </x-table.cell>
                         </x-table.row>
+                        @include('partials.training.runTypes.confirm-progressive-run-delete-modal')
                     @endforeach
                 </x-slot>
             </x-table.table>
             <div>
                 @include('partials.training.runTypes.create-progressive-run-modal')
-                @include('partials.training.runTypes.confirm-progressive-run-delete-modal')
+
             </div>
         </div>
     </x-card.basic>

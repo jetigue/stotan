@@ -7,8 +7,4 @@
 
     @include('partials.training.action-grid')
 
-    <x-slot name="aside">
-        Hello
-    </x-slot>
-
 </div>

@@ -1,7 +1,7 @@
 <x-modal.confirmation wire:model.defer="showConfirmModal">
     <x-slot name="title">Delete Training Cycle?</x-slot>
     <x-slot name="content">Are you sure you want to delete this training cycle This cannot be
-        undone.
+        undone. All related training phases and workouts will deleted as well.
     </x-slot>
     <x-slot name="footer">
         <x-button.secondary wire:click="$toggle('showConfirmModal')">Cancel</x-button.secondary>

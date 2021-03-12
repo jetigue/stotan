@@ -5,8 +5,8 @@
     'helpText' => false
 ])
 
-<div>
-    <label for="{{ $for }}" class="block text-sm font-medium leading-5 text-gray-700">
+<div class="py-1">
+    <label for="{{ $for }}" class="block text-sm font-medium leading-4 text-gray-600">
         {{ $label }}
     </label>
     <div class="mt-1 relative rounded-md shadow-sm">
@@ -19,5 +19,4 @@
     @if ($helpText)
         <p class="mt-2 text-sm text-gray-500"> {{ $helpText }}</p>
     @endif
-
 </div>

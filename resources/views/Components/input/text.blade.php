@@ -1,5 +1,6 @@
 @props([
-    'leadingAddOn' => false
+    'leadingAddOn' => false,
+    'trailingDropDown' => false
 ])
 
 <div class="mt-1 flex rounded-md shadow-sm">
@@ -13,4 +14,8 @@
     <input {{ $attributes }}
            type="text"
            class="{{ $leadingAddOn ? 'rounded-none rounded-r-md' : '' }} flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-md sm:text-sm border-gray-300">
+
+        @if ($trailingDropDown)
+            {{ $trailingDropDown }}
+        @endif
 </div>

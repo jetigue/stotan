@@ -20,6 +20,7 @@ class CreateTrainingIntensitiesTable extends Migration
             $table->string('percentMaxHR', 20);
             $table->text('description');
             $table->text('purpose');
+            $table->unsignedSmallInteger('jd_points');
             $table->timestamps();
         });
     }

@@ -9,8 +9,9 @@
     <x-slot name="header">
         Training Intensities
     </x-slot>
-
-        <x-card.basic class="w-full">
+<div class="flex w-full ">
+    <div class="flex w-3/4">
+         <x-card.basic class="w-full">
             <div class="w-full border-b-2 border-blue-200">
                 <div class="flex w-full border-b-2 border-blue-200 pb-1 px-2">
                     <div class="flex w-11/12">
@@ -21,32 +22,40 @@
                             Name
                         </x-table.heading>
 
-                        <x-table.heading class="hidden lg:inline lg:w-1/3"
+                        <x-table.heading class="hidden lg:inline lg:w-1/4"
                              sortable wire:click="sortBy('percentVO2Max')"
                              :direction="$sortField === 'percentVO2Max' ? $sortDirection : null"
                         >
                             % VO2 Max
                         </x-table.heading>
 
-                        <x-table.heading class="hidden lg:inline lg:w-1/3"
+                        <x-table.heading class="hidden lg:inline lg:w-1/4"
                              sortable wire:click="sortBy('percentMaxHR')"
                              :direction="$sortField === 'percentHRMax' ? $sortDirection : null"
                         >
                             % Max HR
                         </x-table.heading>
+
+                        <x-table.heading class="hidden lg:inline lg:w-1/4"
+                             sortable wire:click="sortBy('jd_points')"
+                             :direction="$sortField === 'jd_points' ? $sortDirection : null"
+                        >
+                            Value
+                        </x-table.heading>
                     </div>
                 </div>
                 <div class="flex flex-col w-full divide-y divide-blue-100">
                     @foreach($intensities as $intensity)
-                    <div x-data="{ expanded: false }" class="flex flex-col px-2">
+                    <div x-data="{ expanded: @entangle('expandedRow').defer }" class="flex flex-col px-2">
                         <div class="flex w-full py-2 items-center">
                             <div class="flex w-11/12">
                                 <div class="w-full lg:w-1/3">{{ $intensity->name }}</div>
-                                <div class="hidden lg:inline lg:w-1/3">{{ $intensity->percentVO2Max}}</div>
-                                <div class="hidden lg:inline lg:w-1/3">{{ $intensity->percentMaxHR}}</div>
+                                <div class="hidden lg:inline lg:w-1/4">{{ $intensity->percentVO2Max}}</div>
+                                <div class="hidden lg:inline lg:w-1/4">{{ $intensity->percentMaxHR}}</div>
+                                <div class="hidden lg:inline lg:w-1/4">{{ $intensity->jd_points}}</div>
                             </div>
                             <div class="flex w-1/12 justify-end pt-1">
-                                <x-button.expand></x-button.expand>
+                                <x-button.expand />
                             </div>
                         </div>
                         <div x-show="expanded" class="flex flex-col w-11/12">
@@ -67,6 +76,14 @@
                                         {{ $intensity->percentMaxHR }}
                                     </div>
                                 </div>
+                                <div class="flex w-full lg:hidden">
+                                    <div class="w-1/2 text-blue-700 font-semibold">
+                                        Points
+                                    </div>
+                                    <div class="text-blue-500">
+                                        {{ $intensity->jd_points }}
+                                    </div>
+                                </div>
                                 <div class="flex flex-col w-full">
                                     <div class="w-full text-blue-700 font-semibold">Description</div>
                                     <div class="text-blue-500">
@@ -78,21 +95,21 @@
                                     <div class="text-blue-500">{{ $intensity->purpose }}</div>
                                 </div>
                             </div>
-                            <div class="space-x-1 py-2 text-right -mr-6 md:-mr-8 lg:-mr-10 xl:-mr-12">
-                                <button
+                            <div class="flex space-x-1 py-2 justify-end -mr-6 md:-mr-8 lg:-mr-10 xl:-mr-12">
+                                <div
                                     wire:click="edit({{$intensity->id}})"
                                     type="button"
-                                    class="p-1"
+                                    class="flex p-1"
                                 >
-                                    <x-icon.edit></x-icon.edit>
-                                </button>
-                                <button
+                                    <x-icon.edit />
+                                </div>
+                                <div
                                     wire:click="confirmDelete({{$intensity->id }})"
                                     type="button"
-                                    class="p-1"
+                                    class="flex p-1 text-red-200 hover:text-red-500"
                                 >
-                                    <x-icon.trash></x-icon.trash>
-                                </button>
+                                    <x-icon.trash />
+                                </div>
 
                             </div>
                         </div>
@@ -102,13 +119,19 @@
                 </div>
             </div>
         </x-card.basic>
-    <x-slot name="aside">
+    </div>
+
+    <div class="flex w-1/4 pl-6">
         <x-button.primary type="button" wire:click="showFormModal" class="h-10 justify-center bg-blue-800 hover:bg-blue-900">
             <x-icon.plus class="mr-2"/>
             Add a Training Intensity
         </x-button.primary>
         @include('partials.training.message')
-    </x-slot
+    </div>
+</div>
+
+
+
 
 
 

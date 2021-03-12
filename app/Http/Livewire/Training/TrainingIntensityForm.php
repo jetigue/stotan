@@ -12,6 +12,7 @@ class TrainingIntensityForm extends Component
     public $percentVO2Max;
     public $percentMaxHR;
     public $description;
+    public $jd_points;
     public $purpose;
 
     protected $listeners = [
@@ -29,6 +30,7 @@ class TrainingIntensityForm extends Component
         'name' => 'required',
         'percentVO2Max' => 'required|max:20',
         'percentMaxHR' => 'required|max:20',
+        'jd_points' => 'required|integer|min:100|max:2100',
         'description' => 'required',
         'purpose' => 'required'
     ];
@@ -40,6 +42,7 @@ class TrainingIntensityForm extends Component
         $this->name = $this->intensity->name;
         $this->percentVO2Max = $this->intensity->percentVO2Max;
         $this->percentMaxHR = $this->intensity->percentMaxHR;
+        $this->jd_points = $this->intensity->jd_points;
         $this->description = $this->intensity->description;
         $this->purpose = $this->intensity->purpose;
     }
@@ -52,6 +55,7 @@ class TrainingIntensityForm extends Component
             'name' => $this->name,
             'percentVO2Max' => $this->percentVO2Max,
             'percentMaxHR' => $this->percentMaxHR,
+            'jd_points' => $this->jd_points,
             'description' => $this->description,
             'purpose' => $this->purpose
         ];
@@ -76,6 +80,7 @@ class TrainingIntensityForm extends Component
             'name',
             'percentVO2Max',
             'percentMaxHR',
+            'jd_points',
             'description',
             'purpose'
         ]);

@@ -22,5 +22,5 @@
     </div>
     <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
         <x-icon.arrow-up-right/>
-      </span>
+    </span>
 </div>

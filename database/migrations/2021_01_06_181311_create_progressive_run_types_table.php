@@ -14,7 +14,7 @@ class CreateProgressiveRunTypesTable extends Migration
     public function up()
     {
         Schema::create('progressive_run_types', function (Blueprint $table) {
-            $table->id();
+            $table->tinyIncrements('id');
             $table->string('name');
             $table->text('description');
             $table->timestamps();

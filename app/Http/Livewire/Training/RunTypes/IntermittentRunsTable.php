@@ -67,7 +67,7 @@ class IntermittentRunsTable extends Component
     public function render()
     {
         return view('livewire.training.run-types.intermittent-runs-table', [
-            'intermittentRuns' => Intermittent::all(),
+            'intermittentRunTypes' => Intermittent::all()
         ]);
     }
 }

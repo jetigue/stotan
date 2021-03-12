@@ -28,23 +28,31 @@ class CreateIntermittentRunsTable extends Migration
             $table->enum('recovery_unit', ['meters', 'miles', 'minutes', 'seconds']);
             $table->enum('recovery_type', ['jog', 'walk', 'rest']);
             $table->text('notes')->nullable();
+            $table->enum('training_session', ['primary', 'secondary'])->default('primary');
+            $table->unsignedSmallInteger('set_recovery')->nullable();
+            $table->enum('set_recovery_unit', ['meters', 'miles', 'minutes', 'seconds'])->nullable();
+            $table->enum('set_recovery_type', ['jog', 'walk', 'rest'])->nullable();
             $table->timestamps();
 
             $table->foreign('team_id')
                 ->references('id')
-                ->on('teams');
+                ->on('teams')
+                ->cascadeOnDelete();
 
             $table->foreign('mesocycle_id')
                 ->references('id')
-                ->on('mesocycles');
+                ->on('mesocycles')
+                ->cascadeOnDelete();
 
             $table->foreign('intermittent_run_type_id')
                 ->references('id')
-                ->on('intermittent_run_types');
+                ->on('intermittent_run_types')
+                ->cascadeOnDelete();
 
             $table->foreign('training_intensity_id')
                 ->references('id')
-                ->on('training_intensities');
+                ->on('training_intensities')
+                ->cascadeOnDelete();
 
         });
     }

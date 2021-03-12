@@ -26,7 +26,8 @@ class IntensityFactory extends Factory
             'description' => $this->faker->sentence(),
             'percentVO2Max' => $this->faker->numberBetween(75,100),
             'percentMaxHR'=> $this->faker->numberBetween(75,100),
-            'purpose' => $this->faker->sentence()
+            'purpose' => $this->faker->sentence(),
+            'jd_points' => $this->faker->numberBetween(100, 210)
         ];
     }
 }

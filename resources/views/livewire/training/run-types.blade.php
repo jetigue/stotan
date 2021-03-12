@@ -10,9 +10,19 @@
     <x-slot name="header">Run Types</x-slot>
 
     <x-tabs.menu active="Intermittent Runs">
-        <x-tabs.tab name="Intermittent Runs">@livewire('training.run-types.intermittent-runs-table')</x-tabs.tab>
-        <x-tabs.tab name="Steady Runs">@livewire('training.run-types.steady-runs-table')</x-tabs.tab>
-        <x-tabs.tab name="Progressive Runs">@livewire('training.run-types.progressive-runs-table')</x-tabs.tab>
+
+        <x-tabs.tab name="Intermittent Runs">
+            <livewire:training.run-types.intermittent-runs-table />
+        </x-tabs.tab>
+
+        <x-tabs.tab name="Steady Runs">
+            <livewire:training.run-types.steady-runs-table />
+        </x-tabs.tab>
+
+        <x-tabs.tab name="Progressive Runs">
+            <livewire:training.run-types.progressive-runs-table />
+        </x-tabs.tab>
+
     </x-tabs.menu>
 
     <x-slot name="aside"></x-slot>

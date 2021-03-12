@@ -1,29 +1,40 @@
 <?php
 
-namespace App\Http\Livewire\Training;
+namespace App\Http\Livewire\Training\Mesocycles;
 
+use App\Models\Color;
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
-use App\Models\Training\TrainingDay;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 
 class MesocycleForm extends Component
 {
-    public $mesocycle = null;
-    public Macrocycle $macrocycle;
-    public $name;
     public $begin_date_for_editing;
+    public $color_id;
+    public $colors;
     public $end_date_for_editing;
-    public $color;
-    public $team_id;
+    public $expand = false;
+    public $highlight = false;
     public $macrocycle_id;
+    public $mesocycle = null;
+    public $microcycle_length = '7';
+    public $name;
+    public $selectedColor;
+    public $team_id;
+    public Macrocycle $macrocycle;
+
 
     protected $listeners = [
         'cancelCreate' => 'resetForm',
         'submitCreate' => 'submitForm',
         'editMesocycle' => 'edit'
     ];
+
+    public function mount()
+    {
+        $this->colors = Color::all();
+    }
 
     public function updated($propertyName)
     {
@@ -36,18 +47,21 @@ class MesocycleForm extends Component
             'name' => 'required',
             'begin_date_for_editing' => 'required|date|after__or_equal:macrocycle.begin_date',
             'end_date_for_editing' => 'required|date|after:begin_date|before__or_equal:macrocycle.end_date',
-            'color' => 'required'
+            'microcycle_length' => 'required|in:7,10,14',
+            'color_id' => 'required|integer'
         ];
     }
 
     public function edit(Mesocycle $mesocycle)
     {
         $this->mesocycle = $mesocycle;
+        $this->selectedColor = Color::where('id', $mesocycle->color->id)->get();
 
         $this->name = $this->mesocycle->name;
         $this->begin_date_for_editing = $this->mesocycle->begin_date_for_editing;
         $this->end_date_for_editing = $this->mesocycle->end_date_for_editing;
-        $this->color = $this->mesocycle->color;
+        $this->microcycle_length = $this->mesocycle->microcycle_length;
+        $this->color_id = $this->mesocycle->color_id;
     }
 
     public function submitForm()
@@ -55,49 +69,60 @@ class MesocycleForm extends Component
         $this->validate();
 
         $mesocycle = [
-            'name' => $this->name,
             'begin_date' => $this->begin_date_for_editing,
+            'color_id' => $this->color_id,
             'end_date' => $this->end_date_for_editing,
-            'color' => $this->color,
+            'macrocycle_id' => $this->macrocycle->id,
+            'microcycle_length' => $this->microcycle_length,
+            'name' => $this->name,
             'team_id' => session('team_id'),
-            'macrocycle_id' => $this->macrocycle->id
         ];
 
         if ($this->mesocycle) {
             Mesocycle::find($this->mesocycle->id)->update($mesocycle);
 
-            $this->emit('hideModal');
-        } else {
-            $mesocycle = Mesocycle::create($mesocycle);
-
-            $this->createTrainingDays($mesocycle);
             $this->resetForm();
             $this->emit('hideModal');
-        }
-    }
+            $this->emit('updateCard');
 
-    public function createTrainingDays($mesocycle): void
-    {
-        foreach($mesocycle->period_of_days as $day) {
-            $trainingDay = [
-                'team_id' => session('team_id'),
-                'mesocycle_id' => $mesocycle->id,
-                'training_day' => $day
-            ];
+        } else {
+            Mesocycle::create($mesocycle);
 
-            TrainingDay::create($trainingDay);
+            $this->resetForm();
+            $this->emit('hideModal');
         }
     }
 
     public function resetForm()
     {
         $this->reset([
-            'mesocycle', 'name', 'begin_date_for_editing', 'end_date_for_editing', 'color'
+            'begin_date_for_editing',
+            'color_id',
+            'end_date_for_editing',
+            'mesocycle',
+            'microcycle_length',
+            'name',
         ]);
+
+        $this->selectedColor = null;
     }
 
     public function render()
     {
-        return view('livewire.training.mesocycle-form');
+        return view('livewire.training.mesocycles.mesocycle-form');
+    }
+
+    public function updateColor($color_id)
+    {
+        if (!is_null($color_id)) {
+            $this->selectedColor = Color::where('id', $color_id)->get();
+
+            $this->color_id = $color_id;
+
+            $this->highlight = false;
+
+            $this->expand = false;
+
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Training;
+namespace App\Http\Livewire\Training\Macrocycles;
 
 use App\Models\Training\Macrocycle;
 use Livewire\Component;
@@ -30,6 +30,11 @@ class MacrocycleForm extends Component
         'end_date_for_editing' => 'required|date'
     ];
 
+    public function mount()
+    {
+        $this->team_id = session('team_id');
+    }
+
     public function edit(Macrocycle $macrocycle)
     {
         $this->macrocycle = $macrocycle;
@@ -47,18 +52,22 @@ class MacrocycleForm extends Component
             'name' => $this->name,
             'begin_date' => $this->begin_date_for_editing,
             'end_date' => $this->end_date_for_editing,
-            'team_id' => session('team_id'),
+            'team_id' => $this->team_id
         ];
 
         if ($this->macrocycle) {
             Macrocycle::find($this->macrocycle->id)->update($macrocycle);
 
+            $this->resetForm();
             $this->emit('hideModal');
+            $this->emit('refreshCards');
+
         } else {
             Macrocycle::create($macrocycle);
 
             $this->resetForm();
             $this->emit('hideModal');
+            $this->emit('refresh');
         }
     }
 
@@ -66,13 +75,15 @@ class MacrocycleForm extends Component
     {
         $this->macrocycle = null;
 
-        $this->name = '';
-        $this->begin_date_for_editing = '';
-        $this->end_date_for_editing = '';
+        $this->reset([
+            'name',
+            'begin_date_for_editing',
+            'end_date_for_editing',
+        ]);
     }
 
     public function render()
     {
-        return view('livewire.training.macrocycle-form');
+        return view('livewire.training.macrocycles.macrocycle-form');
     }
 }

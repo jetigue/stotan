@@ -35,13 +35,20 @@ trait DateFormatsForTrainingPhases
         return count(CarbonPeriod::create($this->begin_date, $this->end_date));
     }
 
-    public function getNumberOfWeeksAttribute(): int
+    public function getNumberOfWeeksAttribute()
     {
-        $end = Carbon::parse($this->end_date);
+        $days =  count(CarbonPeriod::create($this->begin_date, $this->end_date));
 
-        $begin = Carbon::parse($this->begin_date);
+        return $days >= 7 ? floor($days / 7) : 0;
+    }
 
-        return $end->diffInWeeks($begin);
+    public function getNumberOfRemainderDaysAttribute()
+    {
+        $days = count(CarbonPeriod::create($this->begin_date, $this->end_date));
+
+        $weeks = floor($days / 7);
+
+        return $days % 7;
     }
 
     public function getPeriodOfAllDaysInMonthsAttribute(): CarbonPeriod
@@ -52,7 +59,6 @@ trait DateFormatsForTrainingPhases
     public function getPeriodOfDaysAttribute(): CarbonPeriod
     {
         return Carbon::parse($this->begin_date)->daysUntil($this->end_date);
-
     }
 
     public function getMonthsAttribute(): CarbonPeriod

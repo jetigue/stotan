@@ -25,7 +25,7 @@ class MesocycleFactory extends Factory
     {
         return [
             'name' => 'Phase' . ' ' . $this->faker->numberBetween($min = 1, $max = 5),
-            'begin_date' => $this->faker->date($format = 'Y-m-d', $max = '2019-01-01'),
+            'begin_date' => $this->faker->date($format = 'Y-m-d', $max = '2020-01-01'),
             'end_date' => $this->faker->date($format = 'Y-m-d', $max = '2021-01-01'),
             'macrocycle_id' => Macrocycle::factory(),
             'team_id' => Team::factory(),

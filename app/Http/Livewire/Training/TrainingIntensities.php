@@ -9,9 +9,10 @@ class TrainingIntensities extends Component
 {
     public $intensity;
     public $name;
-    public $percentVO2Max;
-    public $percentMaxHR;
-    public $sortField = 'name';
+//    public $percentVO2Max;
+//    public $percentMaxHR;
+    public $expandedRow = false;
+    public $sortField = 'jd_points';
     public $sortDirection = 'asc';
     public $showFormModal = false;
     public $showConfirmModal = false;
@@ -26,6 +27,17 @@ class TrainingIntensities extends Component
         'updated' => 'recordUpdated',
         'created' => 'recordCreated'
     ];
+
+    public function expandRow()
+    {
+        $this->expandedRow = true;
+    }
+
+    public function contractRow()
+    {
+        $this->expandedRow = false;
+    }
+
 
     public function showFormModal() { $this->showFormModal = true; }
     public function hideFormModal() { $this->showFormModal = false; }
