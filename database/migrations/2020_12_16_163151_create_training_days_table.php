@@ -16,7 +16,8 @@ class CreateTrainingDaysTable extends Migration
         Schema::create('training_days', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('team_id')->index();
-            $table->foreignId('mesocycle_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('macrocycle_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('mesocycle_id')->nullable()->constrained()->onDelete('set null');
             $table->date('training_day');
             $table->timestamps();
         });

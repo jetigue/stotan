@@ -6,6 +6,7 @@ use App\Models\Training\Intensity;
 use App\Models\Training\Mesocycle;
 use App\Models\Training\Runs\ProgressiveRun;
 use App\Models\Training\RunTypes\Progressive;
+use App\Models\Training\TrainingDay;
 use Livewire\Component;
 
 class ProgressiveRunForm extends Component
@@ -18,7 +19,7 @@ class ProgressiveRunForm extends Component
     public $notes = null;
     public $progression_interval;
     public $progression_interval_unit = 'minutes';
-    public $trainingDay;
+    public $training_day_id;
     public $starting_training_intensity_id = null;
     public $final_training_intensity_id = null;
     public $training_session = 'primary';
@@ -28,12 +29,12 @@ class ProgressiveRunForm extends Component
         'cancelCreate' => 'resetForm',
         'editProgressiveRun' => 'edit',
         'submitCreate' => 'submitForm',
-        'trainingDate' => 'trainingDateProvided'
+        'trainingDay' => 'trainingDayIDProvided'
     ];
 
-    public function trainingDateProvided($trainingDate)
+    public function trainingDayIDProvided(TrainingDay $trainingDay)
     {
-        $this->trainingDay = $trainingDate;
+        $this->training_day_id = $trainingDay->id;
     }
 
     public function updated($propertyName)
@@ -68,7 +69,7 @@ class ProgressiveRunForm extends Component
         $this->progression_interval_unit = $this->progressiveRun->progression_interval_unit;
         $this->progressive_run_type_id = $this->progressiveRun->progressive_run_type_id;
         $this->starting_training_intensity_id = $this->progressiveRun->starting_training_intensity_id;
-        $this->trainingDay =  $this->progressiveRun->training_date;
+        $this->training_day_id =  $this->progressiveRun->training_day_id;
         $this->training_session = $this->progressiveRun->training_session;
     }
 
@@ -85,7 +86,7 @@ class ProgressiveRunForm extends Component
             'progression_interval' => $this->progression_interval,
             'progression_interval_unit' => $this->progression_interval_unit,
             'team_id' => session('team_id'),
-            'training_date' => $this->trainingDay,
+            'training_day_id' => $this->training_day_id,
             'starting_training_intensity_id' => $this->starting_training_intensity_id,
             'final_training_intensity_id' => $this->final_training_intensity_id,
             'training_session' => $this->training_session,

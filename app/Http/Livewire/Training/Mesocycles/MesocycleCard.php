@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Training\Mesocycles;
 
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
+use App\Models\Training\TrainingDay;
+use Carbon\CarbonPeriod;
 use Livewire\Component;
 
 class MesocycleCard extends Component
@@ -12,7 +14,7 @@ class MesocycleCard extends Component
     public $macrocycle;
 
     protected $listeners = [
-        'updateCard' => 'render'
+        'updateCard' => 'updateTrainingDays'
     ];
 
     public function mount()
@@ -29,6 +31,68 @@ class MesocycleCard extends Component
     {
         $this->emit('confirmDelete', $mesocycle->id);
     }
+
+    public function updateTrainingDays()
+    {
+        $this->nullifyUnusedTrainingDays();
+        $this->prependTrainingDays();
+        $this->appendTrainingDays();
+    }
+
+    public function nullifyUnusedTrainingDays()
+    {
+        $oldTrainingDays = TrainingDay::query()
+            ->where('mesocycle_id', $this->mesocycle->id)
+            ->whereDate('training_day', '>', $this->mesocycle->end_date)
+            ->orWhereDate('training_day', '<', $this->mesocycle->begin_date)
+            ->get();
+
+        foreach ($oldTrainingDays as $trainingDay)
+        {
+            $trainingDay->update(['mesocycle_id' => null]);
+        }
+    }
+
+    public function prependTrainingDays()
+    {
+        $firstTrainingDay = TrainingDay::query()
+            ->where('mesocycle_id', $this->mesocycle->id)
+            ->orderByDesc('training_day')
+            ->first();
+
+        if ($this->mesocycle->begin_date < $firstTrainingDay->training_day)
+        {
+            $prependedDays = TrainingDay::query()
+                ->whereBetween('training_day', [$this->mesocycle->begin_date, $firstTrainingDay->training_day])
+                ->get();
+
+            foreach ($prependedDays as $prependDay)
+            {
+                $prependDay->update(['mesocycle_id' => $this->mesocycle->id ]);
+            }
+        }
+    }
+
+    public function appendTrainingDays()
+    {
+        $lastTrainingDay = TrainingDay::query()
+            ->where('mesocycle_id', $this->mesocycle->id)
+            ->orderBy('training_day')
+            ->first();
+
+        if ($this->mesocycle->end_date > $lastTrainingDay->training_day)
+        {
+            $appendedDays = TrainingDay::query()
+                ->whereBetween('training_day', [$lastTrainingDay->training_day, $this->mesocycle->end_date])
+                ->get();
+
+            foreach ($appendedDays as $appendedDay)
+            {
+                $appendedDay->update(['mesocycle_id' => $this->mesocycle->id ]);
+            }
+        }
+    }
+
 
     public function render()
     {

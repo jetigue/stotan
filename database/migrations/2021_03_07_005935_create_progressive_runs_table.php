@@ -17,7 +17,7 @@ class CreateProgressiveRunsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('team_id')->index();
             $table->unsignedBigInteger('mesocycle_id')->index();
-            $table->date('training_date');
+            $table->unsignedBigInteger('training_day_id');
             $table->unsignedTinyInteger('progressive_run_type_id');
             $table->unsignedSmallInteger('duration');
             $table->unsignedTinyInteger('starting_training_intensity_id');
@@ -37,6 +37,11 @@ class CreateProgressiveRunsTable extends Migration
             $table->foreign('mesocycle_id')
                 ->references('id')
                 ->on('mesocycles')
+                ->cascadeOnDelete();
+
+            $table->foreign('training_day_id')
+                ->references('id')
+                ->on('training_days')
                 ->cascadeOnDelete();
 
             $table->foreign('progressive_run_type_id')

@@ -5,6 +5,7 @@ namespace App\Models\Training\Runs;
 use App\Models\Training\Intensity;
 use App\Models\Training\Mesocycle;
 use App\Models\Training\RunTypes\Steady;
+use App\Models\Training\TrainingDay;
 use App\Traits\BelongsToTeam;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,13 +19,19 @@ class SteadyRun extends Model
      */
     protected $table = 'steady_runs';
 
+    protected $casts = ['training_date' => 'date'];
+
+    protected $appends = [
+        'minutes_running' => 'float'
+    ];
+
     /**
      * @var string[]
      */
     protected $fillable = [
         'team_id',
         'mesocycle_id',
-        'training_date',
+        'training_day_id',
         'steady_run_type_id',
         'duration',
         'duration_unit',
@@ -48,6 +55,11 @@ class SteadyRun extends Model
         return $this->belongsTo(Intensity::class, 'training_intensity_id');
     }
 
+    public function trainingDay(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(TrainingDay::class, 'training_day_id');
+    }
+
     public function getDurationUnitAttribute($value): string
     {
         if ($value === 'minutes')
@@ -61,7 +73,7 @@ class SteadyRun extends Model
         else { return $this->duration === 1 ? 'mile' : 'miles'; }
     }
 
-    public function getMinutesRunningAttribute()
+    public function getMinutesRunningAttribute(): float
     {
         if ($this->duration_unit === 'miles')
         {

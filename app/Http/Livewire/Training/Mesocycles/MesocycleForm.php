@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Training\Mesocycles;
 use App\Models\Color;
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
+use App\Models\Training\TrainingDay;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 
@@ -86,10 +87,24 @@ class MesocycleForm extends Component
             $this->emit('updateCard');
 
         } else {
-            Mesocycle::create($mesocycle);
+            $mesocycle = Mesocycle::create($mesocycle);
 
             $this->resetForm();
             $this->emit('hideModal');
+            $this->updateTrainingDays($mesocycle);
+        }
+    }
+
+    public function updateTrainingDays($mesocycle)
+    {
+        $mesocycleTrainingDays = TrainingDay::query()
+            ->where('macrocycle_id', $mesocycle->macrocycle->id)
+            ->whereBetween('training_day', [$mesocycle->begin_date, $mesocycle->end_date])
+            ->get();
+
+        foreach ($mesocycleTrainingDays as $trainingDay)
+        {
+            $trainingDay->update(['mesocycle_id' => $mesocycle->id]);
         }
     }
 

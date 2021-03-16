@@ -63,7 +63,8 @@ class ShowMacrocycle extends Component
     public function render()
     {
         return view('livewire.training.macrocycles.show-macrocycle', [
-            'mesocycles' => Mesocycle::where('macrocycle_id', $this->macrocycle->id)
+            'mesocycles' => Mesocycle::with('macrocycle', 'trainingDays', 'team')
+                ->where('macrocycle_id', $this->macrocycle->id)
                 ->orderBy('begin_date')
                 ->get()
         ]);

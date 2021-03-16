@@ -1,6 +1,6 @@
 <div class="min-h-full">
     <x-slot name="breadcrumbs">
-        <x-breadcrumb.back href="/planner" />
+        <x-breadcrumb.back href="/training/macrocycles" />
         <x-breadcrumb.menu>
             <x-breadcrumb.item href="/training" :leadingArrow="false">Training</x-breadcrumb.item>
             <x-breadcrumb.item href="/training/macrocycles">Training Cycles</x-breadcrumb.item>
@@ -11,20 +11,20 @@
     </x-slot>
 
     <div class="flex w-full">
-        <aside class="md:w-1/4">
+        <aside class="hidden md:flex md:w-1/4">
             <div class="flex-col w-full pr-4">
                 <x-card.card-with-header class="min-h-full">
                     <x-slot name="header">
-                            <div class="flex justify-around -my-1">
-                                <div class="flex flex-col text-center">
-                                    <p class="text-sm text-cool-gray-400">Begin Date</p>
-                                    <p>{{ $macrocycle->begin_date->format('M j, Y') }}</p>
-                                </div>
-                                <div class="flex flex-col text-center">
-                                    <p class="text-sm text-cool-gray-400">End Date</p>
-                                    <p>{{ $macrocycle->end_date->format('M j, Y') }}</p>
-                                </div>
+                        <div class="flex justify-around -my-1">
+                            <div class="flex flex-col text-center">
+                                <p class="text-sm text-cool-gray-400">Begin Date</p>
+                                <p>{{ $macrocycle->begin_date->format('M j, Y') }}</p>
                             </div>
+                            <div class="flex flex-col text-center">
+                                <p class="text-sm text-cool-gray-400">End Date</p>
+                                <p>{{ $macrocycle->end_date->format('M j, Y') }}</p>
+                            </div>
+                        </div>
                     </x-slot>
                     <div class="relative w-full">
                         <div class="absolute -my-4 top-0 left-0 right-0 text-center mx-auto items-center">
@@ -35,8 +35,8 @@
                             @endif
                         </div>
                         @include('partials.training.macrocycle-mini-calendars')
-                    </div>
 
+                    </div>
                 </x-card.card-with-header>
             </div>
         </aside>

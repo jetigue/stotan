@@ -21,7 +21,7 @@ class ShowMesocycle extends Component
 //    public bool $showSteadyRunFormModal = false;
 //    public bool $showCoolDownFormModal = false;
 //    public $training_date;
-    public $steadyRun;
+//    public $steadyRun;
     public $view;
 
     protected $listeners = [
@@ -116,24 +116,6 @@ class ShowMesocycle extends Component
 
     public function render()
     {
-        return view('livewire.training.mesocycles.show-mesocycle'
-//            , [
-//            'warmUps' => SteadyRun::query()
-//                ->where('steady_run_type_id', 1)
-//                ->where('mesocycle_id', $this->mesocycle->id)
-//                ->get(),
-//
-//            'steadyRuns' => SteadyRun::query()
-//                ->where('mesocycle_id', $this->mesocycle->id)
-//                ->where('steady_run_type_id', '!=', 1)
-//                ->where('steady_run_type_id', '!=', 5)
-//                ->get(),
-//
-//            'coolDowns' => SteadyRun::query()
-//                ->where('steady_run_type_id', 5)
-//                ->where('mesocycle_id', $this->mesocycle->id)
-//                ->get()
-//        ]
-        );
+        return view('livewire.training.mesocycles.show-mesocycle');
     }
 }

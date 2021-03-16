@@ -7,6 +7,7 @@ use App\Models\Training\Mesocycle;
 use App\Models\Training\Runs\IntermittentRun;
 use App\Models\Training\Runs\ProgressiveRun;
 use App\Models\Training\Runs\SteadyRun;
+use App\Models\Training\TrainingDay;
 use App\Repositories\TrainingRuns;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -114,118 +115,51 @@ class TrainingDaysTable extends Component
         $this->emit('editCoolDown', $steadyRun);
     }
 
-    public function showWarmUpForm($index)
+    public function showWarmUpForm($trainingDay)
     {
-        $beginning = $this->mesocycle->begin_date;
-        $this->training_date = $beginning->addDays($index)->format('Y-m-d');
-
         $this->showWarmUpFormModal = true;
-        $this->emit('trainingDate', $this->training_date);
+        $this->emit('trainingDay', $trainingDay);
     }
 
-    public function showSteadyRunForm($index)
+    public function showSteadyRunForm($trainingDay)
     {
-        $beginning = $this->mesocycle->begin_date;
-        $this->training_date = $beginning->addDays($index)->format('Y-m-d');
-
         $this->showSteadyRunFormModal = true;
-        $this->emit('trainingDate', $this->training_date);
+        $this->emit('trainingDay', $trainingDay);
     }
 
-    public function showIntermittentRunForm($index)
+    public function showIntermittentRunForm($trainingDay)
     {
-        $beginning = $this->mesocycle->begin_date;
-        $this->training_date = $beginning->addDays($index)->format('Y-m-d');
-
         $this->showIntermittentRunFormModal = true;
-        $this->emit('trainingDate', $this->training_date);
+        $this->emit('trainingDay', $trainingDay);
     }
 
-    public function showProgressiveRunForm($index)
+    public function showProgressiveRunForm($trainingDay)
     {
-        $beginning = $this->mesocycle->begin_date;
-        $this->training_date = $beginning->addDays($index)->format('Y-m-d');
-
         $this->showProgressiveRunFormModal = true;
-        $this->emit('trainingDate', $this->training_date);
+        $this->emit('trainingDay', $trainingDay);
     }
 
-    public function showCoolDownForm($index)
+    public function showCoolDownForm($trainingDay)
     {
-        $beginning = $this->mesocycle->begin_date;
-        $this->training_date = $beginning->addDays($index)->format('Y-m-d');
-
         $this->showCoolDownFormModal = true;
-        $this->emit('trainingDate', $this->training_date);
+        $this->emit('trainingDay', $trainingDay);
     }
 
     public function render()
     {
         return view('livewire.training.mesocycles.training-days-table', [
-            'trainingDays' => Calendar::query()
-                ->whereBetween('calendar_date', [
-                    $this->mesocycle->begin_date,
-                    $this->mesocycle->end_date
-                ])
+            'trainingDays' => TrainingDay::query()
+                ->with([
+                    'team',
+                    'mesocycle',
+                    'macrocycle',
+                    'steadyRuns',
+                    'intermittentRuns',
+                    'progressiveRuns'
+                    ])
+                ->where('mesocycle_id', $this->mesocycle->id)
+                ->orderBy('training_day')
                 ->paginate($this->mesocycle->microcycle_length),
-
-            'primaryWarmUps' => SteadyRun::query()
-                ->where('steady_run_type_id', 1)
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'primary')
-                ->get(),
-
-            'secondaryWarmUps' => SteadyRun::query()
-                ->where('steady_run_type_id', 1)
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'secondary')
-                ->get(),
-
-            'primarySteadyRuns' => SteadyRun::query()
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('steady_run_type_id', '!=', 1)
-                ->where('steady_run_type_id', '!=', 5)
-                ->where('training_session', 'primary')
-                ->get(),
-
-            'secondarySteadyRuns' => SteadyRun::query()
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('steady_run_type_id', '!=', 1)
-                ->where('steady_run_type_id', '!=', 5)
-                ->where('training_session', 'secondary')
-                ->get(),
-
-            'primaryIntermittentRuns' => IntermittentRun::query()
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'primary')
-                ->get(),
-
-            'secondaryIntermittentRuns' => IntermittentRun::query()
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'secondary')
-                ->get(),
-
-            'primaryProgressiveRuns' => ProgressiveRun::query()
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'primary')
-                ->get(),
-
-            'secondaryProgressiveRuns' => ProgressiveRun::query()
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'secondary')
-                ->get(),
-
-            'primaryCoolDowns' => SteadyRun::query()
-                ->where('steady_run_type_id', 5)
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'primary')
-                ->get(),
-
-            'secondaryCoolDowns' => SteadyRun::query()
-                ->where('steady_run_type_id', 5)
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->where('training_session', 'secondary')
-                ->get(),
         ]);
     }
 }

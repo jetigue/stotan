@@ -5,6 +5,7 @@ namespace App\Models\Training\Runs;
 use App\Models\Training\Intensity;
 use App\Models\Training\Mesocycle;
 use App\Models\Training\RunTypes\Progressive;
+use App\Models\Training\TrainingDay;
 use App\Traits\BelongsToTeam;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,7 +33,7 @@ class ProgressiveRun extends Model
         'progressive_run_type_id',
         'starting_training_intensity_id',
         'team_id',
-        'training_date',
+        'training_day_id',
         'training_session',
     ];
 
@@ -54,5 +55,10 @@ class ProgressiveRun extends Model
     public function mesocycle(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Mesocycle::class, 'mesocycle_id');
+    }
+
+    public function trainingDay(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(TrainingDay::class, 'training_day_id');
     }
 }

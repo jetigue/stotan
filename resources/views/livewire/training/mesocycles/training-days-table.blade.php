@@ -5,7 +5,13 @@
                 <div class="flex flex-col h-full w-full">
                     <div class="flex justify-between">
                         <div class="flex">
-                            <div class="text-gray-400 font-medium text-sm">{{ $trainingDay->calendar_date->format('F') }} {{ $trainingDay->calendar_date->format('d') }}</div>
+                            <div class="text-gray-400 font-medium text-sm">
+                                {{ $trainingDay->training_day->format('F') }} {{ $trainingDay->training_day->format('d') }}
+                            </div>
+                        </div>
+
+                        <div>
+                            {{ $trainingDay->primary_session_minutes }}
                         </div>
 
                         <div class="flex">
@@ -13,117 +19,108 @@
                         </div>
                     </div>
 
-                    <div class="flex w-full p-3">
-                        @php
-                            $primarySteadyRunCount = \DB::table('calendar')
-                                ->where('calendar.calendar_date', $trainingDay->calendar_date)
-                                ->join('steady_runs', 'calendar_date', '=', 'steady_runs.training_date')
-                                ->where('steady_runs.training_session', 'primary')
-                                ->count();
+                    <div class="flex flex-col w-full text-sm">
 
-                            $secondarySteadyRunCount = \DB::table('calendar')
-                                ->where('calendar.calendar_date', $trainingDay->calendar_date)
-                                ->join('steady_runs', 'calendar_date', '=', 'steady_runs.training_date')
-                                ->where('steady_runs.training_session', 'secondary')
-                                ->count();
+                        @if($trainingDay->number_of_primary_runs > 0 and $trainingDay->number_of_secondary_runs > 0)
+                            <p class="mt-2 text-gray-300 font-medium">Primary Session</p>
+                        @endif
 
-                            $primaryIntermittentRunCount = \DB::table('calendar')
-                                ->where('calendar.calendar_date', $trainingDay->calendar_date)
-                                ->join('intermittent_runs', 'calendar_date', '=', 'intermittent_runs.training_date')
-                                ->where('intermittent_runs.training_session', 'primary')
-                                ->count();
-
-                            $secondaryIntermittentRunCount = \DB::table('calendar')
-                                ->where('calendar.calendar_date', $trainingDay->calendar_date)
-                                ->join('intermittent_runs', 'calendar_date', '=', 'intermittent_runs.training_date')
-                                ->where('intermittent_runs.training_session', 'secondary')
-                                ->count();
-
-                            $primaryProgressiveRunCount = \DB::table('calendar')
-                                ->where('calendar.calendar_date', $trainingDay->calendar_date)
-                                ->join('progressive_runs', 'calendar_date', '=', 'progressive_runs.training_date')
-                                ->where('progressive_runs.training_session', 'primary')
-                                ->count();
-
-                            $secondaryProgressiveRunCount = \DB::table('calendar')
-                                ->where('calendar.calendar_date', $trainingDay->calendar_date)
-                                ->join('progressive_runs', 'calendar_date', '=', 'progressive_runs.training_date')
-                                ->where('progressive_runs.training_session', 'secondary')
-                                ->count();
-
-                            $primaryRunCount = $primarySteadyRunCount + $primaryIntermittentRunCount + $primaryProgressiveRunCount;
-                            $secondaryRunCount = $secondarySteadyRunCount + $secondaryIntermittentRunCount + $secondaryProgressiveRunCount;
-                        @endphp
-
-                        <div class="flex flex-col w-full text-sm">
-                            @if($primaryRunCount > 0 and $secondaryRunCount > 0)
-                                <p class="text-gray-300 font-medium">Primary Session</p>
-                            @endif
-
-                            @foreach($primaryWarmUps as $warmUp)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $warmUp->training_date)
+                        @foreach($trainingDay->steadyRuns as $warmUp)
+                                @if ($warmUp->steady_run_type_id == 1 and $warmUp->training_session === 'primary')
                                     @include('partials.training.runs.warm-ups')
                                 @endif
-                            @endforeach
+                        @endforeach
 
-                            @foreach($primaryIntermittentRuns as $intermittentRun)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $intermittentRun->training_date)
-                                    @include('partials.training.runs.intermittent-runs')
-                                @endif
-                            @endforeach
-
-                            @foreach($primaryProgressiveRuns as $progressiveRun)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $progressiveRun->training_date)
-                                    @include('partials.training.runs.progressive-runs')
-                                @endif
-                            @endforeach
-
-                            @foreach($primarySteadyRuns as $steadyRun)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $steadyRun->training_date)
-                                    @include('partials.training.runs.steady-runs')
-                                @endif
-                            @endforeach
-
-                            @foreach($primaryCoolDowns as $coolDown)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $coolDown->training_date)
-                                    @include('partials.training.runs.cool-downs')
-                                @endif
-                            @endforeach
-
-                            @if($primaryRunCount > 0 and $secondaryRunCount > 0)
-                                <p class="mt-2 text-gray-300 font-medium">Secondary Session</p>
+                        @foreach($trainingDay->intermittentRuns as $intermittentRun)
+                            @if ($intermittentRun->training_session === 'primary')
+                                @include('partials.training.runs.intermittent-runs')
                             @endif
+                        @endforeach
 
-                            @foreach($secondaryWarmUps as $warmUp)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $warmUp->training_date)
-                                    @include('partials.training.runs.warm-ups')
-                                @endif
-                            @endforeach
+                        @foreach($trainingDay->SteadyRuns as $steadyRun)
+                             @if ($steadyRun->steady_run_type_id > 2 and $steadyRun->training_session === 'primary')
+                                @include('partials.training.runs.steady-runs')
+                            @endif
+                        @endforeach
 
-                            @foreach($secondaryIntermittentRuns as $intermittentRun)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $intermittentRun->training_date)
-                                    @include('partials.training.runs.intermittent-runs')
-                                @endif
-                            @endforeach
+                        @foreach($trainingDay->progressiveRuns as $progressiveRun)
+                            @if ($progressiveRun->training_session = 'primary')
+                                @include('partials.training.runs.progressive-runs')
+                            @endif
+                        @endforeach
 
-                            @foreach($secondaryProgressiveRuns as $progressiveRun)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $progressiveRun->training_date)
-                                    @include('partials.training.runs.progressive-runs')
-                                @endif
-                            @endforeach
+                        @foreach($trainingDay->steadyRuns as $coolDown)
+                            @if ($coolDown->steady_run_type_id == 2 and $coolDown->training_session === 'primary')
+                                @include('partials.training.runs.cool-downs')
+                            @endif
+                        @endforeach
 
-                            @foreach($secondarySteadyRuns as $steadyRun)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $steadyRun->training_date)
-                                    @include('partials.training.runs.steady-runs')
-                                @endif
-                            @endforeach
+                        @foreach($trainingDay->steadyRuns as $warmUp)
+                            @if ($warmUp->steady_run_type_id == 1 and $warmUp->training_session === 'secondary')
+                                @include('partials.training.runs.warm-ups')
+                            @endif
+                        @endforeach
 
-                            @foreach($secondaryCoolDowns as $coolDown)
-                                @if($trainingDay->calendar_date->format('Y-m-d') === $coolDown->training_date)
-                                    @include('partials.training.runs.cool-downs')
-                                @endif
-                            @endforeach
-                        </div>
+                        @foreach($trainingDay->intermittentRuns as $intermittentRun)
+                            @if ($intermittentRun->training_session === 'secondary')
+                                @include('partials.training.runs.intermittent-runs')
+                            @endif
+                        @endforeach
+
+                        @foreach($trainingDay->SteadyRuns as $steadyRun)
+                            @if ($steadyRun->steady_run_type_id > 2 and $steadyRun->training_session === 'secondary')
+                                @include('partials.training.runs.steady-runs')
+                            @endif
+                        @endforeach
+
+                        @foreach($trainingDay->progressiveRuns as $progressiveRun)
+                            @if ($progressiveRun->training_session === 'secondary')
+                                @include('partials.training.runs.progressive-runs')
+                            @endif
+                        @endforeach
+
+                        @foreach($trainingDay->steadyRuns as $coolDown)
+                            @if ($coolDown->steady_run_type_id == 2 and $coolDown->training_session === 'secondary')
+                                @include('partials.training.runs.cool-downs')
+                            @endif
+                        @endforeach
+
+{{--                        @foreach($trainingDay->primaryIntermittentRuns as $intermittentRun)--}}
+{{--                            @include('partials.training.runs.intermittent-runs')--}}
+{{--                        @endforeach--}}
+
+{{--                        @foreach($trainingDay->primaryProgressiveRuns as $progressiveRun)--}}
+{{--                            @include('partials.training.runs.progressive-runs')--}}
+{{--                        @endforeach--}}
+
+{{--                        @foreach($trainingDay->primaryCoolDowns as $coolDown)--}}
+{{--                            @include('partials.training.runs.cool-downs')--}}
+{{--                        @endforeach--}}
+
+{{--                        @if($trainingDay->number_of_primary_runs > 0 and $trainingDay->number_of_secondary_runs > 0)--}}
+{{--                            <p class="mt-2 text-gray-300 font-medium">Secondary Session</p>--}}
+{{--                        @endif--}}
+
+{{--                        @foreach($trainingDay->secondaryWarmUps as $warmUp)--}}
+{{--                            @include('partials.training.runs.warm-ups')--}}
+{{--                        @endforeach--}}
+
+{{--                        @foreach($trainingDay->secondarySteadyRuns as $steadyRun)--}}
+{{--                            @include('partials.training.runs.steady-runs')--}}
+{{--                        @endforeach--}}
+
+{{--                        @foreach($trainingDay->secondaryIntermittentRuns as $intermittentRun)--}}
+{{--                            @include('partials.training.runs.intermittent-runs')--}}
+{{--                        @endforeach--}}
+
+{{--                        @foreach($trainingDay->secondaryProgressiveRuns as $progressiveRun)--}}
+{{--                            @include('partials.training.runs.progressive-runs')--}}
+{{--                        @endforeach--}}
+
+{{--                        @foreach($trainingDay->secondaryCoolDowns as $coolDown)--}}
+{{--                            @include('partials.training.runs.cool-downs')--}}
+{{--                        @endforeach--}}
+
                     </div>
                 </div>
             </li>

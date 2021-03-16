@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Training\Macrocycles;
 
 use App\Models\Training\Macrocycle;
+use App\Models\Training\TrainingDay;
 use Livewire\Component;
 
 class MacrocycleForm extends Component
@@ -63,11 +64,25 @@ class MacrocycleForm extends Component
             $this->emit('refreshCards');
 
         } else {
-            Macrocycle::create($macrocycle);
+            $macrocycle = Macrocycle::create($macrocycle);
 
+            $this->createTrainingDays($macrocycle);
             $this->resetForm();
             $this->emit('hideModal');
             $this->emit('refresh');
+        }
+    }
+
+    public function createTrainingDays($macrocycle)
+    {
+        foreach($macrocycle->period_of_days as $day) {
+            $trainingDay = [
+                'team_id' => session('team_id'),
+                'macrocycle_id' => $macrocycle->id,
+                'training_day' => $day
+            ];
+
+            TrainingDay::create($trainingDay);
         }
     }
 

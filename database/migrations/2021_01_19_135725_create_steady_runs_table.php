@@ -17,7 +17,7 @@ class CreateSteadyRunsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('team_id')->index();
             $table->unsignedBigInteger('mesocycle_id')->index();
-            $table->date('training_date');
+            $table->unsignedBigInteger('training_day_id')->index();
             $table->unsignedTinyInteger('steady_run_type_id')->index();
             $table->unsignedSmallInteger('duration');
             $table->enum('duration_unit', ['meters', 'miles', 'minutes', 'seconds']);
@@ -34,6 +34,11 @@ class CreateSteadyRunsTable extends Migration
             $table->foreign('mesocycle_id')
                 ->references('id')
                 ->on('mesocycles')
+                ->cascadeOnDelete();
+
+            $table->foreign('training_day_id')
+                ->references('id')
+                ->on('training_days')
                 ->cascadeOnDelete();
 
             $table->foreign('steady_run_type_id')

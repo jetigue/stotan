@@ -6,6 +6,7 @@ use App\Models\Training\Intensity;
 use App\Models\Training\Mesocycle;
 use App\Models\Training\Runs\IntermittentRun;
 use App\Models\Training\RunTypes\Intermittent;
+use App\Models\Training\TrainingDay;
 use Livewire\Component;
 
 class IntermittentRunForm extends Component
@@ -23,7 +24,7 @@ class IntermittentRunForm extends Component
     public $set_recovery;
     public $set_recovery_type;
     public $set_recovery_unit = 'minutes';
-    public $trainingDay;
+    public $training_day_id;
     public $training_intensity_id = null;
     public $training_session = 'primary';
     public Mesocycle $mesocycle;
@@ -33,12 +34,12 @@ class IntermittentRunForm extends Component
         'cancelCreate' => 'resetForm',
         'editIntermittentRun' => 'edit',
         'submitCreate' => 'submitForm',
-        'trainingDate' => 'trainingDateProvided'
+        'trainingDay' => 'trainingDayIDProvided'
     ];
 
-    public function trainingDateProvided($trainingDate)
+    public function trainingDayIDProvided(TrainingDay $trainingDay)
     {
-        $this->trainingDay = $trainingDate;
+        $this->training_day_id = $trainingDay->id;
     }
 
     public function updated($propertyName)
@@ -85,7 +86,7 @@ class IntermittentRunForm extends Component
         $this->recovery = $this->intermittentRun->recovery;
         $this->recovery_type = $this->intermittentRun->recovery_type;
         $this->recovery_unit = $this->intermittentRun->recovery_unit;
-        $this->trainingDay =  $this->intermittentRun->training_date;
+        $this->training_day_id =  $this->intermittentRun->training_day_id;
         $this->training_intensity_id = $this->intermittentRun->training_intensity_id;
         $this->training_session = $this->intermittentRun->training_session;
         $this->set_recovery = $this->intermittentRun->set_recovery;
@@ -112,7 +113,7 @@ class IntermittentRunForm extends Component
             'set_recovery_type' => $this->set_recovery_type,
             'set_recovery_unit' => $this->set_recovery_unit,
             'team_id' => session('team_id'),
-            'training_date' =>  $this->trainingDay,
+            'training_day_id' =>  $this->training_day_id,
             'training_intensity_id' => $this->training_intensity_id,
             'training_session' => $this->training_session,
         ];

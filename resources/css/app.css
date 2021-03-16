@@ -1,4 +1,9 @@
 @import 'tailwindcss/base';
+
+/*[x-cloak] {*/
+/*    display: none;*/
+/*}*/
+
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 

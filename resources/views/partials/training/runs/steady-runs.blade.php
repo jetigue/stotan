@@ -1,4 +1,5 @@
 <div x-data="{ reveal: @entangle('showEditAndDelete').defer }"
+
      class="w-full cursor-pointer flex hover:bg-gray-50 px-2 rounded items-center my-2">
     <div class="flex flex-col w-full">
         <div class="flex w-full justify-between">

@@ -72,8 +72,8 @@ class Mesocycle extends Model
         return $this->belongsTo(Color::class, 'color_id');
     }
 
-    public function steadyRuns(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function trainingDays(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(SteadyRun::class);
+        return $this->hasMany(TrainingDay::class);
     }
 }

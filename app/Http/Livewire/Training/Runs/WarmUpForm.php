@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Training\Runs;
 
 use App\Models\Training\Mesocycle;
 use App\Models\Training\Runs\SteadyRun;
+use App\Models\Training\TrainingDay;
 use Livewire\Component;
 
 class WarmUpForm extends Component
@@ -13,18 +14,18 @@ class WarmUpForm extends Component
     public $duration;
     public string $duration_unit = 'minutes';
     public $training_session = 'primary';
-    public $trainingDay;
+    public $training_day_id;
 
     protected $listeners = [
         'cancelCreate' => 'resetForm',
         'submitCreate' => 'submitForm',
         'editWarmUp' => 'edit',
-        'trainingDate' => 'trainingDateProvided'
+        'trainingDay' => 'trainingDayIDProvided'
     ];
 
-    public function trainingDateProvided($trainingDate)
+    public function trainingDayIDProvided(TrainingDay $trainingDay)
     {
-        $this->trainingDay = $trainingDate;
+        $this->training_day_id = $trainingDay->id;
     }
 
     public function updated($propertyName)
@@ -47,7 +48,7 @@ class WarmUpForm extends Component
 
             $this->duration = $this->steadyRun->duration;
             $this->duration_unit = $this->steadyRun->duration_unit;
-            $this->trainingDay = $this->steadyRun->training_date;
+            $this->training_day_id = $this->steadyRun->training_day_id;
             $this->training_session = $this->steadyRun->training_session;
         }
 
@@ -57,12 +58,12 @@ class WarmUpForm extends Component
 
         $steadyRun= [
             'steady_run_type_id' => 1,
-            'training_intensity_id' => 3,
+            'training_intensity_id' => 1,
             'duration' => $this->duration,
             'duration_unit' => $this->duration_unit,
             'team_id' => session('team_id'),
             'mesocycle_id' => $this->mesocycle->id,
-            'training_date' =>  $this->trainingDay,
+            'training_day_id' =>  $this->training_day_id,
             'training_session' => $this->training_session
         ];
 

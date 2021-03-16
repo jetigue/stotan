@@ -43,12 +43,17 @@ class Macrocycle extends Model
         return count($this->mesocycles);
     }
 
+    public function trainingDays(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(TrainingDay::class)->orderBy('training_day');
+    }
+
     public function addMesocycle($mesocycles): Model
     {
         return $this->mesocycles()->create($mesocycles);
     }
 
-    public function getIsCurrentAttribute()
+    public function getIsCurrentAttribute(): bool
     {
         $currentDate = Carbon::today();
 

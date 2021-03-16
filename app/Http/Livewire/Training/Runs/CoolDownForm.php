@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Training\Runs;
 
 use App\Models\Training\Mesocycle;
 use App\Models\Training\Runs\SteadyRun;
+use App\Models\Training\TrainingDay;
 use Livewire\Component;
 
 class CoolDownForm extends Component
@@ -12,18 +13,18 @@ class CoolDownForm extends Component
     public Mesocycle $mesocycle;
     public $duration;
     public string $duration_unit = 'minutes';
-    public $trainingDay;
+    public $training_day_id;
 
     protected $listeners = [
         'cancelCreate' => 'resetForm',
         'submitCreate' => 'submitForm',
         'editCoolDown' => 'edit',
-        'trainingDate' => 'trainingDateProvided'
+        'trainingDay' => 'trainingDayIDProvided'
     ];
 
-    public function trainingDateProvided($trainingDate)
+    public function trainingDayIDProvided(TrainingDay $trainingDay)
     {
-        $this->trainingDay = $trainingDate;
+        $this->training_day_id = $trainingDay->id;
     }
 
     public function updated($propertyName)
@@ -45,7 +46,7 @@ class CoolDownForm extends Component
 
             $this->duration = $this->steadyRun->duration;
             $this->duration_unit = $this->steadyRun->duration_unit;
-            $this->trainingDay = $this->steadyRun->training_date;
+            $this->training_day_id = $this->steadyRun->training_day_id;
         }
 
     public function submitForm()
@@ -53,13 +54,13 @@ class CoolDownForm extends Component
         $this->validate();
 
         $steadyRun= [
-            'steady_run_type_id' => 5,
-            'training_intensity_id' => 3,
+            'steady_run_type_id' => 2,
+            'training_intensity_id' => 1,
             'duration' => $this->duration,
             'duration_unit' => $this->duration_unit,
             'team_id' => session('team_id'),
             'mesocycle_id' => $this->mesocycle->id,
-            'training_date' =>  $this->trainingDay
+            'training_day_id' =>  $this->training_day_id
         ];
 
         if ($this->steadyRun) {

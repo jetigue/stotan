@@ -1,9 +1,10 @@
 <div x-data="{ reveal: @entangle('showEditAndDelete').defer }"
-     class="w-full cursor-pointer flex hover:bg-gray-50 px-2 rounded items-center my-2">
+
+     class="w-full cursor-pointer flex hover:bg-gray-50 px-2 rounded items-center">
     <div class="flex flex-col w-full">
         <div class="flex w-full justify-between">
             <div @click="reveal=true" class="flex w-4/5">
-                <div class="flex w-1/4 text-gray-600 font-medium">
+                <div class="flex w-1/4 text-gray-400 font-medium">
                     Warm-up:
                 </div>
 

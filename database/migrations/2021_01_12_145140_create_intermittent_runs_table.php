@@ -17,7 +17,7 @@ class CreateIntermittentRunsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('team_id')->index();
             $table->unsignedBigInteger('mesocycle_id')->index();
-            $table->date('training_date');
+            $table->unsignedBigInteger('training_day_id');
             $table->unsignedTinyInteger('intermittent_run_type_id');
             $table->unsignedTinyInteger('number_sets')->default(1);
             $table->unsignedTinyInteger('number_repetitions');
@@ -42,6 +42,11 @@ class CreateIntermittentRunsTable extends Migration
             $table->foreign('mesocycle_id')
                 ->references('id')
                 ->on('mesocycles')
+                ->cascadeOnDelete();
+
+            $table->foreign('training_day_id')
+                ->references('id')
+                ->on('training_days')
                 ->cascadeOnDelete();
 
             $table->foreign('intermittent_run_type_id')

@@ -2,7 +2,7 @@
      class="w-full cursor-pointer flex justify-between hover:bg-gray-50 px-2 rounded items-center"
 >
     <div @click="reveal=true" class="flex w-4/5">
-        <div class="flex w-1/4 text-gray-400">
+                <div class="flex w-1/4 text-gray-400 font-medium">
             Cool-down:
         </div>
         <div class="flex font-medium">
