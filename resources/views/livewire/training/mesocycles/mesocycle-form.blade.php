@@ -23,15 +23,28 @@
             </x-input.date>
         </x-input.group>
 
-        <x-input.group for="microcycle_length" label="Microcycle Length" :error="$errors->first('microcycle_length')">
-           <x-input.select wire:model="microcycle_length">
-               <option value="7">7 Days</option>
-               <option value="10">10 Days</option>
-               <option value="14">14 Days</option>
-           </x-input.select>
-        </x-input.group>
+            <x-input.group for="microcycle_length" label="Microcycle Length" :error="$errors->first('microcycle_length')">
+               <x-input.select wire:model="microcycle_length">
+                   <option value="7">7 Days</option>
+                   <option value="10">10 Days</option>
+                   <option value="14">14 Days</option>
+               </x-input.select>
+            </x-input.group>
 
-        <div x-data="{ popover: @entangle('expand').defer}">
+{{--        @if($this->extraDays !== 0)--}}
+{{--            <x-input.group--}}
+{{--                for="extraDays"--}}
+{{--                label="Where should the {{ $this->extraDays }} extra day(s) be added?"--}}
+{{--            >--}}
+{{--               <x-input.select wire:model="extraDaysLocated">--}}
+{{--                   <option value="first">To the first microcycle</option>--}}
+{{--                   <option value="last">To the last microcycle</option>--}}
+{{--                   <option value="new">Create a mini-microcycle</option>--}}
+{{--               </x-input.select>--}}
+{{--            </x-input.group>--}}
+{{--        @endif--}}
+
+        <div x-data="{ popover: @entangle('expand').defer} ">
             <label id="listbox-label" class="block text-sm font-medium text-gray-700">
                 Color
             </label>

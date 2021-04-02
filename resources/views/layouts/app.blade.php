@@ -53,6 +53,7 @@
     <div class="hidden lg:flex lg:flex-shrink-0">
         <div class="flex flex-col w-64 ">
             <x-nav.sidebar-menu>
+
                 <x-nav.sidebar-link route="dashboard" title="Dashboard">
                     <x-slot name="icon">
                         <x-icon.home/>
@@ -66,6 +67,7 @@
                     </x-slot>
                     Training
                 </x-nav.sidebar-link>
+
             </x-nav.sidebar-menu>
         </div>
     </div>

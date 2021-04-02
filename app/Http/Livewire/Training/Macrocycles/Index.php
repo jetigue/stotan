@@ -49,14 +49,12 @@ class Index extends Component
     public function render()
     {
         return view('livewire.training.macrocycles.index', [
-            'macrocycles' => Macrocycle::query()
+            'macrocycles' => Macrocycle::with('mesocycles')
                 ->whereDate('end_date', '>=', Carbon::today())
-                ->with('mesocycles')
                 ->get(),
 
-            'archivedMacrocycles' => Macrocycle::query()
+            'archivedMacrocycles' => Macrocycle::with('mesocycles')
                 ->whereDate('end_date', '<=', Carbon::today())
-                ->with('mesocycles')
                 ->orderByDesc('end_date')
                 ->get()
         ]);

@@ -25,10 +25,9 @@ class Mesocycle extends Model
         'view'
     ];
 
-    protected $casts = [
-        'begin_date' => 'date',
-        'end_date' => 'date',
-        'number_of_days' => 'integer'
+    protected $dates = [
+        'begin_date',
+        'end_date'
     ];
 
     protected $appends = [
@@ -75,5 +74,28 @@ class Mesocycle extends Model
     public function trainingDays(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(TrainingDay::class);
+    }
+
+    public function steadyRuns(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(SteadyRun::class);
+    }
+
+    public function getNumberOfMicrocyclesAttribute():int
+    {
+        $numTrainingDays = $this->trainingDays()->count();
+        $numberMicrocycles = $numTrainingDays / $this->microcycle_length;
+
+        return floor($numberMicrocycles) == $numberMicrocycles ? $numberMicrocycles : $numberMicrocycles + 1;
+    }
+
+    public function getNumberOfRunsAttribute():int
+    {
+        return $this->steadyRuns->where('steady_run_type_id', '>', 3)->count();
+    }
+
+    public function getNumberOfTrainingDaysAttribute(): int
+    {
+        return $this->trainingDays()->count();
     }
 }

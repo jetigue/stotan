@@ -30,7 +30,7 @@ trait DateFormatsForTrainingPhases
         return $this->end_date->format('m/d/Y');
     }
 
-    public function getNumberOfDaysAttribute(): int
+    public function getNumberOfDaysAttribute()
     {
         return count(CarbonPeriod::create($this->begin_date, $this->end_date));
     }

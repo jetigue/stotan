@@ -18,6 +18,7 @@ class CreateTrainingDaysTable extends Migration
             $table->unsignedBigInteger('team_id')->index();
             $table->foreignId('macrocycle_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('mesocycle_id')->nullable()->constrained()->onDelete('set null');
+            $table->unsignedSmallInteger('microcycle')->nullable();
             $table->date('training_day');
             $table->timestamps();
         });

@@ -15,6 +15,11 @@ class MacrocycleCard extends Component
         'refreshCards' => 'updateTrainingDays'
     ];
 
+    public function goToMacrocycle()
+    {
+        return redirect('/training/macrocycles/' . $this->macrocycle->id);
+    }
+
     public function getWeeksLabelProperty(): string
     {
         $weeks = $this->macrocycle->number_of_weeks;

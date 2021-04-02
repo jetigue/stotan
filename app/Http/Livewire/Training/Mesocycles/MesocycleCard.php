@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Training\Mesocycles;
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
 use App\Models\Training\TrainingDay;
-use Carbon\CarbonPeriod;
 use Livewire\Component;
 
 class MesocycleCard extends Component
@@ -20,6 +19,11 @@ class MesocycleCard extends Component
     public function mount()
     {
         $this->macrocycle = Macrocycle::firstWhere('id', $this->mesocycle->macrocycle_id);
+    }
+
+    public function goToMesocycle()
+    {
+        return redirect('/training/macrocycles/' . $this->macrocycle->id . '/mesocycles/' . $this->mesocycle->slug);
     }
 
     public function editMesocycle (Mesocycle $mesocycle)
@@ -37,6 +41,7 @@ class MesocycleCard extends Component
         $this->nullifyUnusedTrainingDays();
         $this->prependTrainingDays();
         $this->appendTrainingDays();
+        $this->updateMicrocycles();
     }
 
     public function nullifyUnusedTrainingDays()
@@ -91,6 +96,40 @@ class MesocycleCard extends Component
                 $appendedDay->update(['mesocycle_id' => $this->mesocycle->id ]);
             }
         }
+    }
+
+    public function updateMicrocycles()
+    {
+        $mesocycleTrainingDays = TrainingDay::where('mesocycle_id', $this->mesocycle->mesocycle->id)
+            ->orderBy('training_day')
+            ->get();
+
+        foreach ($mesocycleTrainingDays as $trainingDay)
+        {
+            $trainingDay->update(['microcycle' => null]);
+        }
+
+        $trainingDays = TrainingDay::where('mesocycle_id', $this->mesocycle->id)
+            ->orderBy('training_day')
+            ->get();
+
+        $chunks = $trainingDays->chunk($this->mesocycle->microcycle_length);
+        $microcycle = 0;
+
+        foreach($chunks as $chunk)
+        {
+            $microcycle++;
+
+            foreach($chunk as $item)
+            {
+                $item->update(['microcycle' => $microcycle]);
+            }
+        }
+
+
+
+
+
     }
 
 

@@ -2,6 +2,8 @@
 
 namespace App\Models\Training;
 
+use App\Models\Training\Runs\IntermittentRun;
+use App\Models\Training\Runs\ProgressiveRun;
 use App\Models\Training\Runs\SteadyRun;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,4 +37,33 @@ class Intensity extends Model
     {
         return $this->hasMany(SteadyRun::class, 'id', 'training_intensity_id');
     }
+
+    public function intermittentRuns(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(IntermittentRun::class, 'id', 'training_intensity_id');
+    }
+
+    public function progressiveRuns(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ProgressiveRun::class, 'id', 'training_intensity_id');
+    }
+
+    public function getJdPointsAttribute($value)
+    {
+        return $value/1000;
+    }
+
+    public function getInitialsAttribute(): string
+    {
+        $words = explode(" ", $this->name);
+        $initials = "";
+
+        foreach ($words as $w)
+        {
+            $initials .= $w[0];
+        }
+
+        return $initials;
+    }
+
 }

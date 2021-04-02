@@ -49,7 +49,13 @@ class IntermittentRunForm extends Component
 
     public function updatedNumberSets($value)
     {
-       return $value > 1 ? $this->showSetRecoveryInputs = true : $this->showSetRecoveryInputs = false;
+       return $value > 1 ? $this->showSetRecoveryInputs = true : ($this->noSets());
+    }
+
+    public function noSets()
+    {
+        $this->showSetRecoveryInputs = false;
+        $this->set_recovery = null;
     }
 
     public function rules()

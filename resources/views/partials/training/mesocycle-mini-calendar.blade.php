@@ -62,13 +62,13 @@
                                         </p>
                                     </div>
                                 @else
-                                    @if($date >= $mesocycle->macrocycle->begin_date && $date <= $mesocycle->macrocycle->end_date)
-                                        <div class="w-full bg-gray-50">
-                                            <p class="text-gray-400 text-tiny">
-                                                {{ $date->format('j') }}
-                                            </p>
-                                        </div>
-                                    @endif
+{{--                                    @if($date >= $mesocycle->macrocycle->begin_date && $date <= $mesocycle->macrocycle->end_date)--}}
+{{--                                        <div class="w-full bg-gray-50">--}}
+{{--                                            <p class="text-gray-400 text-tiny">--}}
+{{--                                                {{ $date->format('j') }}--}}
+{{--                                            </p>--}}
+{{--                                        </div>--}}
+{{--                                    @endif--}}
                                 @endif
                             </div>
                         @endif

@@ -5,84 +5,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7d8282-56c6-4d4e-a622-0e3ea1196e11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/Index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/ShowMesocycle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/mesocycle-form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/show-mesocycle.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Traits/SteadyRunStats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/stotan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stotan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/MacrocycleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/MacrocycleForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/MacrocyclesTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/MacrocyclesTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/MesocycleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/MesocycleForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes/IntermittentRunsTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes/IntermittentRunsTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/MacrocycleCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/MacrocycleCard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/MacrocycleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/MacrocycleForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/ShowMacrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/ShowMacrocycle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/MesocycleCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/MesocycleCard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/MesocycleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/MesocycleForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/ShowMesocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/ShowMesocycle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/TrainingDaysTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Mesocycles/TrainingDaysTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes/IntermittentRunForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes/IntermittentRunForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes/ProgressiveRunForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/RunTypes/ProgressiveRunForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/CoolDownForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/CoolDownForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/IntermittentRunForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/IntermittentRunForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/SteadyRunForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/SteadyRunForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/ShowMacrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Macrocycles/ShowMacrocycle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/ShowMesocycle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/TrainingIntensities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/TrainingIntensities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/TrainingIntensityForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/TrainingIntensityForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Calendar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/WarmUpForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Training/Runs/WarmUpForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Intensity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Intensity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Macrocycle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Mesocycle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Mesocycle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Training/RunTypes/Intermittent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/RunTypes/Intermittent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Training/RunTypes/Steady.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/RunTypes/Steady.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Runs/IntermittentRun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Runs/IntermittentRun.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Training/Runs/ProgressiveRun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Runs/ProgressiveRun.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Training/Runs/SteadyRun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/Runs/SteadyRun.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Training/TrainingDay.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Training/TrainingDay.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Traits/DateFormatsForTrainingPhases.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/DateFormatsForTrainingPhases.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/TrainingRunStats.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/jetstream.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jetstream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/Training/IntensityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Training/IntensityFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/Training/MesocycleFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Training/MesocycleFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_27_192438_create_mesocycles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_27_192438_create_mesocycles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_18_173654_create_training_intensities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_18_173654_create_training_intensities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_06_181311_create_progressive_run_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_06_181311_create_progressive_run_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_12_145140_create_intermittent_runs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_12_145140_create_intermittent_runs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_19_135725_create_steady_runs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_19_135725_create_steady_runs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/grid/action-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/grid/action-item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/adjustments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/adjustments.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/arrow-up-right.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/arrow-up-right.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/dots-vertical.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/dots-vertical.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/exclamation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/exclamation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/icon/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/icon/trash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/date.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/date.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/group.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/group.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/input/text.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/input/text.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Components/message/warning.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/message/warning.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_08_002642_create_calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/calendar/2020_12_08_002642_create_calendar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_08_002849_create_ints_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/calendar/2020_12_08_002849_create_ints_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_16_163151_create_training_days_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_163151_create_training_days_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Components/nav/sidebar-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Components/nav/sidebar-menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycle-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles/macrocycle-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/mesocycle-form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/run-types.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/run-types.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/run-types/intermittent-runs-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/run-types/intermittent-runs-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/run-types/progressive-runs-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/run-types/progressive-runs-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/run-types/steady-run-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/run-types/steady-run-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/run-types/steady-runs-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/run-types/steady-runs-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/runs/steady-run-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/runs/steady-run-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/show-macrocycle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles/show-macrocycle.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/show-mesocycle.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/training-intensities.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/training-intensities.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/training-intensity-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/training-intensity-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/confirm-macrocycle-delete-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/macrocycles/confirm-macrocycle-delete-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/confirm-mesocycle-delete-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/mesocycles/confirm-delete-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/create-macrocycle-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/macrocycle-form-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/create-mesocycle-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/mesocycles/form-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/macrocycle-mini-calendars.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/macrocycle-mini-calendars.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar-nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles/macrocycle-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/macrocycles/macrocycle-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/mesocycle-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/mesocycle-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/mesocycle-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/mesocycle-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/show-mesocycle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/show-mesocycle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/training-days-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/training/mesocycles/training-days-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/training/training-day.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/training/mesocycle-mini-calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/mesocycle-mini-calendar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/runTypes/confirm-intermittent-run-delete-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/runTypes/confirm-intermittent-run-delete-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/livewire/tailwind.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/livewire/tailwind.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/MacrocycleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/MacrocycleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/TeamScopeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/TeamScopeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/runs/cool-downs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/runs/cool-downs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/runs/intermittent-runs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/runs/intermittent-runs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/runs/progressive-runs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/runs/progressive-runs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/runs/steady-runs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/runs/steady-runs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/training/runs/warm-ups.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/training/runs/warm-ups.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +211,7 @@
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-query-detector" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kIsU9PbLlnjH19tg0ZcHwgNNkb" />
@@ -253,7 +229,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials/training/runs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -264,7 +240,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="de.beyondco.tinkerwell.TinkerwellSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -275,11 +251,11 @@
       <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\partials\training\runTypes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\stotan\database\migrations\calendar" />
+      <recent name="C:\xampp\htdocs\laravel\stotan\public\images" />
+      <recent name="C:\xampp\htdocs\laravel\stotan\app\Http\Livewire\Training\TrainingDays" />
       <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\partials\training\mesocycles" />
       <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\partials\training\macrocycles" />
-      <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\livewire\training\macrocycles" />
-      <recent name="C:\xampp\htdocs\laravel\stotan\resources\views\livewire\training\mesocycles" />
-      <recent name="C:\xampp\htdocs\laravel\stotan\app\Http\Livewire\Training\Mesocycles" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.MacrocycleTest.the_edit_method_emits_the_correct_correct_id">
@@ -309,10 +285,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.MacrocycleTest.the_edit_method_emits_the_correct_correct_id" />
-        <item itemvalue="PHPUnit.MacrocycleTest.page_does_not_contains_the_macrocycle_card_if_the_end_date_is_in_the_past" />
         <item itemvalue="PHPUnit.MacrocycleTest.the_macrocycles_page_contains_the_macrocycle_card_if_the_end_date_is_in_the_future" />
         <item itemvalue="PHPUnit.MacrocycleTest.the_macrocycles_page_contains_the_macrocycle_card" />
+        <item itemvalue="PHPUnit.MacrocycleTest.the_edit_method_emits_the_correct_correct_id" />
+        <item itemvalue="PHPUnit.MacrocycleTest.page_does_not_contains_the_macrocycle_card_if_the_end_date_is_in_the_past" />
         <item itemvalue="PHPUnit.MacrocycleTest" />
       </list>
     </recent_temporary>
@@ -438,6 +414,27 @@
       <workItem from="1615486201633" duration="2720000" />
       <workItem from="1615489212499" duration="967000" />
       <workItem from="1615506999639" duration="15224000" />
+      <workItem from="1615858361837" duration="185000" />
+      <workItem from="1615917170313" duration="2694000" />
+      <workItem from="1615986298222" duration="11642000" />
+      <workItem from="1616017407899" duration="5125000" />
+      <workItem from="1616104549460" duration="2176000" />
+      <workItem from="1616164330158" duration="6638000" />
+      <workItem from="1616282336411" duration="3932000" />
+      <workItem from="1616332143072" duration="10619000" />
+      <workItem from="1616416587688" duration="964000" />
+      <workItem from="1616417580508" duration="5357000" />
+      <workItem from="1616517587613" duration="26109000" />
+      <workItem from="1616626784875" duration="21217000" />
+      <workItem from="1616716393268" duration="19799000" />
+      <workItem from="1616864159065" duration="19735000" />
+      <workItem from="1617025232558" duration="7243000" />
+      <workItem from="1617056928548" duration="16400000" />
+      <workItem from="1617144795486" duration="982000" />
+      <workItem from="1617216382694" duration="2706000" />
+      <workItem from="1617279163518" duration="10530000" />
+      <workItem from="1617317892987" duration="4296000" />
+      <workItem from="1617380182924" duration="812000" />
     </task>
     <servers />
   </component>

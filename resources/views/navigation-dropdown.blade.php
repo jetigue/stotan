@@ -1,14 +1,17 @@
 <nav x-data="{ open: false }" class="bg-gray-900">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-4">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex items-center">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
-                </div>
+                <a href="{{ route('dashboard') }}"
+                   class="flex-shrink-0 flex items-center text-white text-lg font-medium italic">
+                    <div class="-mr-3 z-10">LONGHORN</div>
+                    <div class="h-12 w-16">
+                        <img src="images/LogoWithSpikes.png" alt="logo">
+                    </div>
+                    <div class="-ml-3 z-10">DISTANCE</div>
+                </a>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

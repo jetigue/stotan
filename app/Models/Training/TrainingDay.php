@@ -47,31 +47,81 @@ class TrainingDay extends Model
         return $this->hasMany(ProgressiveRun::class);
     }
 
-//    public function getNumberOfPrimaryRunsAttribute(): int
-//    {
-//        $sRuns = $this->primarySteadyRuns()->count();
-//        $iRuns = $this->primaryIntermittentRuns()->count();
-//        $pRuns = $this->primaryProgressiveRuns()->count();
-//
-//        return $sRuns + $iRuns + $pRuns;
-//    }
-//
-//    public function getNumberOfSecondaryRunsAttribute(): int
-//    {
-//        $sRuns = $this->secondarySteadyRuns()->count();
-//        $iRuns = $this->secondaryIntermittentRuns()->count();
-//        $pRuns = $this->secondaryProgressiveRuns()->count();
-//
-//        return $sRuns + $iRuns + $pRuns;
-//    }
+    public function getTotalMinutesAttribute()
+    {
+        $steadyRuns = collect($this->steadyRuns)->sum('minutes_running');
+        $intermittentRuns = collect($this->intermittentRuns)->sum('minutes_running');
 
-//    public function getPrimarySessionMinutesAttribute()
-//    {
-//        $warmUpMinutes = $this->primaryWarmUps()->sum('duration');
-//        $steadyRunMinutes = $this->primarySteadyRuns()->sum('duration');
-//        $coolDownMinutes = $this->primaryCoolDowns()->sum('duration');
-//        return $warmUpMinutes + $steadyRunMinutes + $coolDownMinutes;
-//    }
+        return $steadyRuns + $intermittentRuns;
+    }
+
+
+    public function getTotalTimeRunningAttribute(): string
+    {
+        $steadyRuns = collect($this->steadyRuns)->sum('minutes_running');
+        $intermittentRuns = collect($this->intermittentRuns)->sum('minutes_running');
+
+        $total =  $steadyRuns + $intermittentRuns;
+
+        $hours = floor($total / 60);
+        $minutes = $total % 60;
+
+        $hrs = $hours < 1 ? '' : ($hours == 1 ? '1 hr' . ' ' : $hours . ' ' . 'hrs' . ' ');
+        $min = $minutes < 1 ? '' : $minutes . ' ' . 'min';
+
+        return $hrs . $min;
+    }
+
+    public function getTotalMilesAttribute(): string
+    {
+        $steadyRuns = collect($this->steadyRuns)->sum('miles');
+        $intermittentRuns = collect($this->intermittentRuns)->sum('total_miles');
+
+        return round($steadyRuns + $intermittentRuns, 1);
+    }
+
+    public function getTotalMilesForHumansAttribute(): string
+    {
+        $steadyRuns = collect($this->steadyRuns)->sum('miles');
+        $intermittentRuns = collect($this->intermittentRuns)->sum('total_miles');
+
+        return round($steadyRuns + $intermittentRuns, 1) . ' ' . 'mi';
+    }
+
+    public function getTotalPointsAttribute(): string
+    {
+        $steadyRuns = collect($this->steadyRuns)->sum('points');
+        $intermittentRuns = collect($this->intermittentRuns)->sum('points');
+
+        return round($steadyRuns + $intermittentRuns, 1);
+    }
+
+    public function getTotalPointsForHumansAttribute(): string
+    {
+        $steadyRuns = collect($this->steadyRuns)->sum('points');
+        $intermittentRuns = collect($this->intermittentRuns)->sum('points');
+
+        return round($steadyRuns + $intermittentRuns, 1) . ' ' . 'pts';
+    }
+
+    public function getNumberOfPrimaryRunsAttribute(): int
+    {
+        $sRuns = $this->steadyRuns()->where('training_session', 'primary')->count();
+        $iRuns = $this->intermittentRuns()->where('training_session', 'primary')->count();
+        $pRuns = $this->progressiveRuns()->where('training_session', 'primary')->count();
+
+        return $sRuns + $iRuns + $pRuns;
+    }
+
+    public function getNumberOfSecondaryRunsAttribute(): int
+    {
+        $sRuns = $this->steadyRuns()->where('training_session', 'secondary')->count();
+        $iRuns = $this->intermittentRuns()->where('training_session', 'secondary')->count();
+        $pRuns = $this->progressiveRuns()->where('training_session', 'secondary')->count();
+
+        return $sRuns + $iRuns + $pRuns;
+    }
+
 
 
 }

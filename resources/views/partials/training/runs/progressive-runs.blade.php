@@ -26,19 +26,23 @@
             </div>
         </div>
 
-        <div x-show="reveal" @click.away="reveal=false"
-             class="flex space-x-2">
-            <div class="" wire:click="editIntermittentRun({{ $progressiveRun->id }})">
+        <div x-show="reveal" @click.away="reveal=false" class="flex space-x-2">
+            <div class="" wire:click="editProgressiveRun({{ $progressiveRun->id }})">
                 <x-icon.edit/>
             </div>
 
-            <div wire:click="destroyIntermittentRun({{ $progressiveRun->id }})" class="">
+            <div wire:click="destroyProgressiveRun({{ $progressiveRun->id }})" class="">
                 <x-icon.trash/>
             </div>
         </div>
     </div>
     <div x-show="reveal" class="flex italic text-gray-500">
         <div class="w-1/5"></div>
+        <div class="flex w-4/5 px-2 space-x-4">
+            <span>{{ $progressiveRun->progression_in_h_m }}</span>
+            <span>{{ $progressiveRun->starting_intensity_percentage }}</span>
+            <span>{{ $progressiveRun->total_points }}</span>
+        </div>
         {{ $progressiveRun->notes }}
     </div>
     </div>

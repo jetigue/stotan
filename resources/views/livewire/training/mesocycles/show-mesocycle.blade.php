@@ -12,12 +12,9 @@
     <x-slot name="header">
         <div class="flex items-baseline justify-between">
             <h1>{{ $mesocycle->name }}</h1>
-{{--            <div class="mb-1 text-sm">--}}
-{{--                <livewire:training.mesocycles.view-toggle :mesocycle="$mesocycle" />--}}
-{{--            </div>--}}
         </div>
     </x-slot>
-{{--    <div x-data="{ show: @entangle('showCalendar') }">--}}
+
     <div class="flex w-full">
         <aside class="hidden md:flex md:w-1/4 pr-2">
             <div class="flex-col w-full">

@@ -2,15 +2,12 @@
 
 namespace App\Http\Livewire\Training\Mesocycles;
 
-use App\Models\Calendar;
 use App\Models\Training\Mesocycle;
 use App\Models\Training\Runs\IntermittentRun;
 use App\Models\Training\Runs\ProgressiveRun;
 use App\Models\Training\Runs\SteadyRun;
 use App\Models\Training\TrainingDay;
-use App\Repositories\TrainingRuns;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class TrainingDaysTable extends Component
 {
@@ -22,14 +19,11 @@ class TrainingDaysTable extends Component
     public bool $showCoolDownFormModal = false;
     public bool $showEditAndDelete = false;
     public bool $editing = false;
-    public $training_date;
-
-    use WithPagination;
-
-    protected $paginationTheme = 'microcycle-pagination';
+    public int $microcycle = 1;
 
     protected $listeners = [
-        'hideModal' => 'hideFormModal'
+        'hideModal' => 'hideFormModal',
+        'showWarmUpFormModal' => 'showWarmUpForm'
     ];
 
     public function hideFormModal()
@@ -39,6 +33,7 @@ class TrainingDaysTable extends Component
         $this->showIntermittentRunFormModal = false;
         $this->showCoolDownFormModal = false;
         $this->showProgressiveRunFormModal = false;
+        $this->emitTo('trainingDay', 'refresh');
     }
 
     public function cancel()
@@ -145,21 +140,34 @@ class TrainingDaysTable extends Component
         $this->emit('trainingDay', $trainingDay);
     }
 
+    public function nextMicrocycle()
+    {
+        return $this->microcycle++;
+    }
+
+    public function previousMicrocycle():int
+    {
+        return $this->microcycle--;
+    }
+
     public function render()
     {
         return view('livewire.training.mesocycles.training-days-table', [
-            'trainingDays' => TrainingDay::query()
-                ->with([
-                    'team',
-                    'mesocycle',
-                    'macrocycle',
-                    'steadyRuns',
-                    'intermittentRuns',
-                    'progressiveRuns'
-                    ])
-                ->where('mesocycle_id', $this->mesocycle->id)
-                ->orderBy('training_day')
-                ->paginate($this->mesocycle->microcycle_length),
+            'trainingDays' => TrainingDay::with(
+                'steadyRuns',
+                'steadyRuns.runType',
+                'steadyRuns.intensity',
+                'intermittentRuns',
+                'intermittentRuns.runType',
+                'intermittentRuns.intensity',
+                'progressiveRuns',
+                'progressiveRuns.runType',
+                'progressiveRuns.startingIntensity',
+                'progressiveRuns.finalIntensity')
+            ->where('mesocycle_id', $this->mesocycle->id)
+            ->where('microcycle', '=', $this->microcycle)
+            ->orderBy('training_day')
+            ->get()
         ]);
     }
 }

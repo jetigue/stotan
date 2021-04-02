@@ -6,6 +6,8 @@ use App\Models\Color;
 use App\Models\Training\Macrocycle;
 use App\Models\Training\Mesocycle;
 use App\Models\Training\TrainingDay;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 
@@ -24,12 +26,12 @@ class MesocycleForm extends Component
     public $selectedColor;
     public $team_id;
     public Macrocycle $macrocycle;
-
+//    public $extraDays = 0;
 
     protected $listeners = [
         'cancelCreate' => 'resetForm',
         'submitCreate' => 'submitForm',
-        'editMesocycle' => 'edit'
+        'editMesocycle' => 'edit',
     ];
 
     public function mount()
@@ -41,6 +43,48 @@ class MesocycleForm extends Component
     {
         $this->validateOnly($propertyName);
     }
+
+//    public function updatedBeginDateForEditing(): int
+//    {
+//        if ($this->end_date_for_editing and $this->microcycle_length)
+//        {
+//            $beginDate = Carbon::create($this->begin_date_for_editing);
+//            $endDate = Carbon::create($this->end_date_for_editing);
+//            $extraDays = ($beginDate->diffIndays($endDate) + 1) % $this->microcycle_length;
+//
+//            return $this->extraDays = $extraDays;
+//        }
+//
+//        return $this->extraDays;
+//    }
+
+//    public function updatedEndDateForEditing(): int
+//    {
+//        if ($this->begin_date_for_editing and $this->microcycle_length)
+//        {
+//            $beginDate = Carbon::create($this->begin_date_for_editing);
+//            $endDate = Carbon::create($this->end_date_for_editing);
+//            $extraDays = ($beginDate->diffIndays($endDate) + 1) % $this->microcycle_length;
+//
+//            return $this->extraDays = $extraDays;
+//        }
+//
+//        return $this->extraDays;
+//    }
+//
+//    public function updatedMicrocycleLength():int
+//    {
+//        if ($this->begin_date_for_editing and $this->end_date_for_editing)
+//        {
+//            $beginDate = Carbon::create($this->begin_date_for_editing);
+//            $endDate = Carbon::create($this->end_date_for_editing);
+//            $extraDays = ($beginDate->diffIndays($endDate) + 1) % $this->microcycle_length;
+//
+//            return $this->extraDays = $extraDays;
+//        }
+//
+//        return $this->extraDays;
+//    }
 
     public function rules()
     {
@@ -57,12 +101,12 @@ class MesocycleForm extends Component
     {
         $this->mesocycle = $mesocycle;
         $this->selectedColor = Color::where('id', $mesocycle->color->id)->get();
-
         $this->name = $this->mesocycle->name;
         $this->begin_date_for_editing = $this->mesocycle->begin_date_for_editing;
         $this->end_date_for_editing = $this->mesocycle->end_date_for_editing;
         $this->microcycle_length = $this->mesocycle->microcycle_length;
         $this->color_id = $this->mesocycle->color_id;
+//        $this->extraDays = ($this->mesocycle->begin_date->diffInDays($this->mesocycle->end_date) + 1) % $this->microcycle_length;
     }
 
     public function submitForm()
@@ -95,7 +139,7 @@ class MesocycleForm extends Component
         }
     }
 
-    public function updateTrainingDays($mesocycle)
+    public function updateTrainingDays(Mesocycle $mesocycle)
     {
         $mesocycleTrainingDays = TrainingDay::query()
             ->where('macrocycle_id', $mesocycle->macrocycle->id)
@@ -106,6 +150,20 @@ class MesocycleForm extends Component
         {
             $trainingDay->update(['mesocycle_id' => $mesocycle->id]);
         }
+
+        $chunks = $mesocycleTrainingDays->chunk($mesocycle->microcycle_length);
+        $microcycle = 0;
+
+        foreach($chunks as $chunk)
+        {
+            $microcycle++;
+
+            foreach($chunk as $item)
+            {
+                $item->update(['microcycle' => $microcycle]);
+            }
+        }
+
     }
 
     public function resetForm()

@@ -1,19 +1,17 @@
-<li x-data="{show: false}"
-    @mouseover="show = true"
-    @mouseleave="show = false"
-    class="relative col-span-1 bg-white rounded-lg shadow border-2 border-white hover:border-indigo-500">
-    <div x-show="show" class="flex absolute justify-between top-1 right-1 z-10 space-x-2">
-
-        <a href="/training/macrocycles/{{ $macrocycle->id }}" class="p-1 text-sm text-gray-400 hover:text-indigo-500">
-            Go to Macrocycle
-        </a>
-
+<li class="relative col-span-1 bg-white rounded-lg shadow border-2 border-white hover:border-indigo-500">
+    <div class="flex absolute justify-between top-1 right-1 z-10">
         <div class="p-1">
             <x-dropdown.dropdown>
                 <x-slot name="trigger">
                         <x-icon.dots-vertical class="text-gray-300 hover:text-indigo-500" />
                 </x-slot>
                 <x-slot name="content">
+                    <x-dropdown.link wire:click="goToMacrocycle">
+                        Go to Macrocycle
+                    </x-dropdown.link>
+                    <div class="px-2">
+                        <hr>
+                    </div>
                     <x-dropdown.link wire:click="editMacrocycle({{$macrocycle->id}})">
                         Edit
                     </x-dropdown.link>
@@ -28,9 +26,9 @@
 
 
     <div class="w-full flex items-center p-6">
-        <div class="flex-1 truncate">
+        <div wire:click="goToMacrocycle" class="cursor-pointer flex-1 truncate">
             <div class="flex items-center">
-                <h3 class="text-gray-900 font-medium truncate">{{ $macrocycle->name }}</h3>
+                <h3 class="text-gray-800 font-medium truncate hover:text-indigo-500">{{ $macrocycle->name }}</h3>
             </div>
 
             <div class="text-xs text-gray-400">
